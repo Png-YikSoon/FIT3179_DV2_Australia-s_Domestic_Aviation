@@ -1,0 +1,226 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Passengers on major routes through each airport, July 2025 to June 2026. Circle area shows passengers.",
+  "width": 660,
+  "height": 560,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ],
+    "center": {
+      "expr": "[focus_lon - 132, focus_lat]"
+    },
+    "scale": {
+      "expr": "790 * zoom * focus_zoom"
+    },
+    "translate": {
+      "expr": "[330.0 + pan_x, 280.0 + pan_y]"
+    }
+  },
+  "params": [
+    {
+      "name": "zoom",
+      "value": 1,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 8,
+        "step": 0.25,
+        "name": "Zoom "
+      }
+    },
+    {
+      "name": "focus",
+      "value": "Australia",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Australia",
+          "East coast",
+          "Western Australia",
+          "Northern Territory",
+          "Tasmania"
+        ],
+        "name": "Map focus "
+      }
+    },
+    {
+      "name": "focus_lon",
+      "expr": "{'Australia':136.6,'East coast':149.5,'Western Australia':120.5,'Northern Territory':133.5,'Tasmania':146.5}[focus]"
+    },
+    {
+      "name": "focus_lat",
+      "expr": "{'Australia':-27.0,'East coast':-31.5,'Western Australia':-25.5,'Northern Territory':-19.5,'Tasmania':-42.0}[focus]"
+    },
+    {
+      "name": "focus_zoom",
+      "expr": "{'Australia':1,'East coast':2.4,'Western Australia':1.7,'Northern Territory':2,'Tasmania':5}[focus]"
+    },
+    {
+      "name": "pan_x",
+      "value": 0
+    },
+    {
+      "name": "pan_y",
+      "value": 0
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ecebe6",
+        "stroke": "#ffffff",
+        "strokeWidth": 1,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "data/04_airports_traffic_recovery.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "passengers_fy2019": "number",
+            "passengers_fy2026": "number",
+            "recovery_pct_of_2019": "number",
+            "change_pct": "number",
+            "lat": "number",
+            "lon": "number"
+          }
+        }
+      },
+      "transform": [],
+      "mark": {
+        "type": "circle",
+        "color": "#2a78d6",
+        "opacity": 0.7,
+        "stroke": "#ffffff",
+        "strokeWidth": 1,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "passengers_fy2026",
+          "type": "quantitative",
+          "title": "Passengers (2025–26)",
+          "scale": {
+            "range": [
+              15,
+              3000
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "format": "~s",
+            "values": [
+              500000,
+              5000000,
+              20000000
+            ],
+            "symbolFillColor": "#2a78d6",
+            "symbolStrokeColor": "#ffffff",
+            "symbolOpacity": 0.7
+          }
+        },
+        "order": {
+          "field": "passengers_fy2026",
+          "type": "quantitative",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "city",
+            "title": "Airport"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "passengers_fy2026",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Passengers 2025–26"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/04_airports_traffic_recovery.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "passengers_fy2019": "number",
+            "passengers_fy2026": "number",
+            "recovery_pct_of_2019": "number",
+            "change_pct": "number",
+            "lat": "number",
+            "lon": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.passengers_fy2026 > 2500000 || zoom * focus_zoom >= 2"
+        },
+        {
+          "calculate": "datum.city + (datum.passengers_fy2026 > 2500000 ? ' ' + format(datum.passengers_fy2026 / 1e6, '.1f') + 'M' : '')",
+          "as": "label"
+        },
+        {
+          "calculate": "datum.code == 'OOL' ? datum.lat - 0.5 : datum.code == 'BNE' ? toNumber(datum.lat) + 0.35 : toNumber(datum.lat)",
+          "as": "label_lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "fontSize": 11,
+        "color": "#0b0b0b",
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

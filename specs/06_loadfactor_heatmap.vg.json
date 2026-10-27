@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Share of seats filled (load factor) on the 15 busiest routes, July 2025 to June 2026.",
+  "width": "container",
+  "height": {
+    "step": 34.45
+  },
+  "data": {
+    "url": "data/06_heatmap_loadfactor_top15_fy2026.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "route_rank": "number",
+        "fy_month_order": "number"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun"
+      ],
+      "title": "Month (July 2025 – June 2026)",
+      "axis": {
+        "labelAngle": 0,
+        "orient": "top",
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "route",
+      "type": "ordinal",
+      "sort": {
+        "field": "route_rank",
+        "op": "min"
+      },
+      "title": "Route",
+      "axis": {
+        "domain": false,
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#ffffff",
+        "strokeWidth": 2,
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "load_factor",
+          "type": "quantitative",
+          "title": "Seats filled (%)",
+          "scale": {
+            "scheme": "blues",
+            "domain": [
+              70,
+              95
+            ],
+            "clamp": true
+          }
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "title": "Route"
+          },
+          {
+            "field": "month",
+            "title": "Month"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "load_factor",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Seats filled (%)"
+          },
+          {
+            "field": "passengers",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Passengers"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.load_factor >= 90 || datum.load_factor < 75"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10
+      },
+      "encoding": {
+        "text": {
+          "field": "load_factor",
+          "type": "quantitative",
+          "format": ".0f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.load_factor >= 85",
+            "value": "#ffffff"
+          },
+          "value": "#0b0b0b"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Up in the Air: Domestic Flying in Australia</title>
+  <meta name="description" content="A data story about domestic airline travel within Australia, 2014–2026.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">FIT3179 Data Visualisation 2 · Domestic air travel in Australia</p>
+    <h1>Up in the Air: Exploring Australia’s Domestic Aviation</h1>
+    <p class="lede">Australia’s vast landscape and coastal population centres make domestic aviation an important link between cities and regional destinations. This visualisation examines passenger trends, popular routes and seasonal demand, while exploring how Australians travel by air for work and leisure.</p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Jump to section">
+  <div class="wrap">
+    <a href="#big-picture"><span>01</span> Big Picture</a>
+    <a href="#network"><span>02</span> Flight Network</a>
+    <a href="#calendar"><span>03</span> Seasonality</a>
+    <a href="#beyond-airports"><span>04</span> Beyond the Flight</a>
+    <a href="#conclusion"><span>05</span> Wrap-up</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="big-picture">
+    <p class="section-num">Section 1</p>
+    <h2>The Big Picture: Australia’s Domestic Aviation Trends and Recovery</h2>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Australia’s Domestic Airline Passenger Trends, 2014–2026</h3>
+        <p class="subtitle">Passengers on domestic flights each month (thin line) and the<br>
+          12-month average (thick line). Hover for exact figures.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis01" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>97% collapse during COVID-19</h4>
+            <p>Monthly passenger numbers plunged to just <strong>146,000</strong> in April 2020, <strong>97% lower</strong> than in April 2019.</p>
+          </div>
+          <div class="finding">
+            <h4>Uneven recovery in 2020–2021</h4>
+            <p>Border restrictions and the Delta lockdowns caused repeated disruptions to domestic passenger demand.</p>
+          </div>
+          <div class="finding">
+            <h4>Domestic Air Travel Returns to Pre-Pandemic Levels</h4>
+            <p>Domestic passenger numbers recovered strongly by 2023 and returned to broadly pre-pandemic levels by 2024–2026, demonstrating a sustained recovery following COVID-19 disruptions.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Australia’s Domestic Aviation Hubs</h3>
+        <p class="subtitle">Passenger volumes on selected domestic routes, 2025–26. Larger circles<br>
+          indicate higher passenger volumes, highlighting the concentration of traffic<br>
+          around major metropolitan centres.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis04" class="vis vis-center vis-map"></div>
+          <p class="map-hint">Pinch the trackpad (or Ctrl + scroll) to zoom · drag or two-finger swipe to move</p>
+          <button class="reset" type="button" data-vis="vis04">Reset view</button>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Metropolitan hubs dominate passenger traffic</h4>
+            <p><strong>Melbourne</strong> and <strong>Sydney</strong> handle substantial passenger volumes, while <strong>Brisbane</strong> and <strong>Perth</strong> serve as major domestic aviation hubs. Their large populations and concentration of business activity generate strong travel demand.</p>
+          </div>
+          <div class="finding">
+            <h4>East coast connectivity</h4>
+            <p>Passenger traffic is concentrated around Melbourne, Sydney and Brisbane, reflecting their large populations, economic activity and strong connections between major cities.</p>
+          </div>
+          <div class="finding">
+            <h4>Lower traffic at regional airports</h4>
+            <p>Regional airports generally handle fewer passengers than metropolitan hubs due to smaller populations and fewer flight connections. However, tourism and industry can generate substantial traffic at some regional airports.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Changes in Australia’s Busiest Domestic Flight Routes, 2019–2025</h3>
+        <p class="subtitle">Percentage change in passenger numbers across the 20 busiest domestic<br>
+          routes in 2019, comparing 2025 with the pre-pandemic baseline.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis13" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Brisbane–Perth leads growth</h4>
+            <p>Passenger numbers rose by <strong class="k-blue">19%</strong> from 2019 to 2025, the largest increase among the 20 busiest routes of 2019. This highlights growth on selected routes, although the reasons remain unclear.</p>
+          </div>
+          <div class="finding">
+            <h4>Route recovery remains uneven</h4>
+            <p>Of the 20 routes, <strong class="k-red">10</strong> remained below 2019 passenger levels, <strong class="k-blue">8</strong> exceeded them and 2 were essentially unchanged, showing that recovery varied considerably by route.</p>
+          </div>
+          <div class="finding">
+            <h4>Canberra routes record the largest declines</h4>
+            <p>Canberra–Sydney fell by <strong class="k-red">34%</strong>, while Canberra–Melbourne declined by <strong class="k-red">17%</strong>. These substantial drops warrant further investigation into changes in demand, flight frequency or airline capacity.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Changes in Australia’s Domestic Aviation Activity Between 2019 and 2025</h3>
+        <p class="subtitle">Percentage change in six national measures for all domestic airlines,<br>
+          from 2019 to 2025. Each line starts at 0%, its<br>
+          2019 level. Rising lines are higher than before the pandemic;<br>
+          falling lines are lower.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis15" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Fewer Flights, Higher Passenger Loads</h4>
+            <p>Flights fell by <strong class="k-orange">5.5%</strong>, while passengers per flight rose by <strong class="k-blue">3.9%</strong>. This suggests airlines carried more passengers on fewer flights, indicating greater passenger concentration per service.</p>
+          </div>
+          <div class="finding">
+            <h4>Passenger Demand Remains Below 2019</h4>
+            <p>Total passenger numbers remained <strong class="k-orange">1.8%</strong> below 2019 levels, despite seat occupancy increasing by <strong class="k-blue">2.2%</strong>. Higher occupancy therefore did not translate into a full recovery in overall passenger volume.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </section>
+
+  <section id="network">
+    <p class="section-num">Section 2</p>
+    <h2>Mapping Australia’s Domestic Flight Network</h2>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Australia’s Domestic Flight Network</h3>
+        <p class="subtitle">The 62 major domestic routes linking 40 cities, July 2025–June<br>
+          2026. Select a city to highlight its connections, or hover<br>
+          over a route to see its distance.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis03" class="vis vis-center vis-map"></div>
+          <p class="map-hint">Pinch the trackpad (or Ctrl + scroll) to zoom · drag or two-finger swipe to move</p>
+          <button class="reset" type="button" data-vis="vis03">Reset view</button>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Brisbane Is the Best-Connected Hub</h4>
+            <p><strong class="k-blue">Brisbane</strong> features in <strong>19</strong> routes, followed by Sydney (<strong>18</strong>) and Melbourne (<strong>15</strong>), making them the network’s most connected cities.</p>
+          </div>
+          <div class="finding">
+            <h4>Perth Connects Distant Destinations</h4>
+            <p><strong class="k-blue">Perth</strong> has <strong>11</strong> routes, including connections to Karratha and Port Hedland. Brisbane–Perth is the longest route at approximately <strong>3,615 km</strong>, highlighting the role of domestic flights in connecting distant cities.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Australia’s Top 10 Busiest Domestic Flight Routes</h3>
+        <p class="subtitle">Passengers carried on the ten busiest domestic routes, July 2025–June<br>
+          2026 (both directions combined).</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis14" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Melbourne–Sydney Leads Passenger Volume</h4>
+            <p><strong class="k-orange">Melbourne–Sydney</strong> carried <strong class="k-orange">8.1 million</strong> passengers, nearly double Brisbane–Sydney (<strong>4.4 million</strong>), accounting for <strong>15%</strong> of passenger traffic across the 62 routes.</p>
+          </div>
+          <div class="finding">
+            <h4>Major East Coast Routes Carry High Traffic</h4>
+            <p>The three routes connecting Sydney, Melbourne and Brisbane carried <strong>16.2 million</strong> passengers, representing <strong>30%</strong> of total traffic across the 62 routes.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Monthly Seat Occupancy Across Australia’s Busiest Domestic Flight Routes</h3>
+        <p class="subtitle">Monthly load factor (%) across the 15 busiest domestic<br>
+          flight routes, July 2025–June 2026. Darker blue indicates a<br>
+          higher proportion of seats occupied.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis06" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Gold Coast routes show high occupancy</h4>
+            <p>Melbourne–Gold Coast reached <strong class="k-blue">93%</strong> occupancy in May and August, while Gold Coast–Sydney peaked at <strong class="k-blue">94%</strong> in November, indicating strong seat utilisation on these routes.</p>
+          </div>
+          <div class="finding">
+            <h4>Lower occupancy on selected routes</h4>
+            <p>Canberra–Melbourne fell to <strong>71%</strong>, while Brisbane–Townsville reached <strong>70%</strong> in February. These rates indicate a larger proportion of unfilled seats, potentially reflecting differences in demand or airline capacity.</p>
+          </div>
+          <div class="finding">
+            <h4>Monthly occupancy varies by route</h4>
+            <p>Some routes maintain high occupancy throughout the year, while others experience monthly declines. This suggests that seat utilisation patterns differ across routes rather than following one consistent seasonal trend.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </section>
+
+  <section id="calendar">
+    <p class="section-num">Section 3</p>
+    <h2>The Rhythm of Domestic Air Travel: Seasonality and Demand</h2>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Australia’s Domestic Air Travel Calendar: Seasonal Passenger Patterns</h3>
+        <p class="subtitle">Monthly domestic passenger activity from 2015 to 2025. Each<br>
+          concentric ring represents a year, from 2015 at the<br>
+          centre to 2025 on the outside; segments progress clockwise<br>
+          from January. <span class="k-blue">Blue</span> indicates months above that year’s average,<br>
+          while <span class="k-red">red</span> indicates months below average.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis02" class="vis vis-center"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Spring and early summer see higher activity</h4>
+            <p>Passenger activity is <strong class="k-blue">above the annual monthly average</strong> in several years from October to December, coinciding with spring school holidays and the start of the summer holiday season. Holiday travel may contribute to this increase.</p>
+          </div>
+          <div class="finding">
+            <h4>February frequently sees lower activity</h4>
+            <p>Passenger activity in February falls <strong class="k-red">below the annual monthly average</strong> in several years, suggesting a recurring lull after the summer holiday period.</p>
+          </div>
+          <div class="finding">
+            <h4>Seasonal patterns vary across years</h4>
+            <p>Monthly passenger activity differs across years, indicating that seasonal trends are not fixed and may be affected by changing travel conditions and exceptional events.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Monthly Passenger Patterns Across Selected Domestic Flight Routes</h3>
+        <p class="subtitle">Average monthly passenger volumes from 2023–2025, expressed as percentage deviations<br>
+          from each route’s typical monthly level. Positive values indicate above-average<br>
+          traffic; negative values indicate below-average traffic.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis11" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Leisure Routes Show Distinct Seasonal Peaks</h4>
+            <p><strong class="k-orange">Cairns–Sydney</strong> peaks at <strong>24%</strong> above its typical level in July, while <strong class="k-orange">Melbourne–Gold Coast</strong> peaks at <strong>23%</strong> in January. The contrasting peaks indicate that seasonal passenger demand varies by destination.</p>
+          </div>
+          <div class="finding">
+            <h4>Business Corridors Vary in Stability</h4>
+            <p><strong class="k-blue">Brisbane–Sydney</strong> and <strong class="k-blue">Melbourne–Sydney</strong> peak modestly in October (<strong>+11%</strong> and <strong>+9%</strong>), while <strong class="k-blue">Canberra–Sydney</strong> ranges from <strong>−33%</strong> in January to <strong>+18%</strong> in November. This shows that monthly fluctuations differ substantially even among business corridors.</p>
+          </div>
+          <div class="finding">
+            <h4>Mining Routes Peak in October</h4>
+            <p><strong class="k-magenta">Kalgoorlie–Perth</strong> and <strong class="k-magenta">Perth–Port Hedland</strong> both reach their highest passenger levels in October. This pattern may reflect mining-related and FIFO work travel, although further data would be needed to confirm the cause.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </section>
+
+  <section id="beyond-airports">
+    <p class="section-num">Section 4</p>
+    <h2>Beyond the Flight: Air Travel Purposes and Behaviour</h2>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Domestic Air Travel Growth Across Major Routes</h3>
+        <p class="subtitle">Change in domestic trips by state visited, year ending June<br>
+          2026 compared with the year before. Use the menu to<br>
+          switch between all trips and overnight trips. * Smaller states<br>
+          and territories have higher survey error.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis07" class="vis vis-center vis-map"></div>
+          <p class="map-hint">Pinch the trackpad (or Ctrl + scroll) to zoom · drag or two-finger swipe to move</p>
+          <button class="reset" type="button" data-vis="vis07">Reset view</button>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>All States and Territories Recorded Growth</h4>
+            <p>Domestic trips increased across all states and territories, ranging from <strong>2.3%</strong> in Tasmania to <strong class="k-blue">7.7%</strong> in Queensland. This suggests that growth was widespread, although its magnitude varied by destination.</p>
+          </div>
+          <div class="finding">
+            <h4>Growth Was Stronger in Some States</h4>
+            <p><strong class="k-blue">Queensland</strong> and <strong class="k-blue">Western Australia</strong> grew most, possibly reflecting coastal and nature-based tourism in Queensland, and tourism and mining travel in Western Australia. Tasmania, the NT and the ACT grew more modestly, perhaps due to differences in demand and market size. These are possible explanations, not confirmed causes.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Why Australians Fly: Business and Leisure Travel</h3>
+        <p class="subtitle">Share of domestic trips by main purpose for the year<br>
+          ending June 2026. Each square represents 1% of trips, comparing<br>
+          all trips with overnight trips.</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis08" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Holidays Drive Domestic Air Travel</h4>
+            <p><strong class="k-orange">Holidays</strong> account for the largest share of domestic trips, highlighting the importance of leisure travel and Australia’s natural attractions in shaping domestic air travel demand.</p>
+          </div>
+          <div class="finding">
+            <h4>Family Visits Sustain Domestic Mobility</h4>
+            <p><strong class="k-magenta">Visiting friends and relatives</strong> is another major travel purpose, reflecting the role of family connections and social gatherings in domestic travel.</p>
+          </div>
+          <div class="finding">
+            <h4>Business Travel Serves a Different Purpose</h4>
+            <p><strong class="k-blue">Business</strong> accounts for a smaller share of domestic trips than holidays and family visits, reflecting its more specialised role in travel between commercial centres.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="chart-block">
+      <div class="chart-head">
+        <h3>Diverging Trends in Domestic Air Travel by Purpose, 2025–2026</h3>
+        <p class="subtitle">Percentage change in trips in each quarter compared with the<br>
+          June quarter 2025 (0% = no change).</p>
+      </div>
+      <div class="chart-row">
+        <div class="chart-col">
+          <div id="vis09" class="vis"></div>
+        </div>
+        <aside class="insight">
+          <p class="insight-label">Key findings</p>
+          <div class="finding">
+            <h4>Business Travel Declines Throughout the Year</h4>
+            <p><strong class="k-blue">Business</strong> trips fell in every quarter, reaching <strong class="k-blue">18%</strong> below the June 2025 baseline by June 2026. This contrasts with the growth in leisure-related travel, suggesting differing travel patterns by purpose.</p>
+          </div>
+          <div class="finding">
+            <h4>Holiday Travel Records the Strongest Growth</h4>
+            <p><strong class="k-orange">Holiday</strong> trips rose steadily to <strong class="k-orange">9%</strong> above the baseline by June 2026, highlighting growing leisure travel. Australia’s beaches, national parks and coastal landscapes offer opportunities for sightseeing, outdoor recreation and nature-based holidays.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </section>
+
+  <section id="conclusion" class="conclusion">
+    <p class="section-num">Conclusion</p>
+    <div class="conclusion-card">
+      <svg class="conclusion-icon" viewBox="0 0 160 160" role="img" aria-label="Aeroplane icon">
+          <circle cx="80" cy="80" r="76" fill="#2a78d6" fill-opacity="0.10"/>
+          <path d="M22 128 C 40 100, 52 92, 66 88" fill="none" stroke="#eb6834" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 9"/>
+          <g transform="translate(88 70) rotate(45) translate(-60 -62)">
+            <path d="M60 10 c5 0 8 5 8 11 v24 l40 22 v10 l-40 -11 v22 l12 9 v8 l-20 -5 -20 5 v-8 l12 -9 v-22 l-40 11 v-10 l40 -22 v-24 c0 -6 3 -11 8 -11z" fill="#0d2b4e"/>
+            <path d="M60 14 c3 0 4.5 3 4.5 7 v8 h-9 v-8 c0 -4 1.5 -7 4.5 -7z" fill="#eda100"/>
+          </g>
+        </svg>
+      <div class="conclusion-text">
+        <h2>Australia’s domestic aviation remains essential</h2>
+        <p>Domestic air travel connects major cities and regional destinations across<br>
+          Australia. Despite the pandemic disruption, passenger demand has largely recovered,<br>
+          although recovery varies across routes and seasonal travel patterns.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Author:</strong> P’ng Yik Soon (34600329) · Monash University Malaysia ·
+      <strong>Last updated:</strong> 27 October 2026</p>
+
+    <h3 class="footer-h">References</h3>
+    <ul class="references">
+      <li>Bureau of Infrastructure and Transport Research Economics. (2026). <em>Australian domestic aviation activity—Time series</em> [Data set]. <a href="https://www.bitre.gov.au/resource/aviation/australian-domestic-aviation-activity-time-series">https://www.bitre.gov.au/resource/aviation/australian-domestic-aviation-activity-time-series</a></li>
+      <li>Hogan, R. (n.d.). <em>australian-states</em> [Data set]. GitHub. <a href="https://github.com/rowanhogan/australian-states">https://github.com/rowanhogan/australian-states</a></li>
+      <li>OurAirports. (n.d.). <em>Airports data</em> [Data set]. <a href="https://ourairports.com/data/">https://ourairports.com/data/</a></li>
+      <li>Tourism Research Australia. (2026). <em>Domestic tourism statistics results</em> [Data set]. Australian Trade and Investment Commission. <a href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results">https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results</a></li>
+    </ul>
+
+    <h3 class="footer-h">Declaration of AI Use</h3>
+    <p class="ai-note">AI tools were used to assist with Vega-Lite coding and debugging, refine visual design, and improve the clarity of titles, annotations, and explanatory text. The author reviewed and refined the AI-assisted outputs to ensure the final visualisation aligned with the project objectives and data.</p>
+
+    <p>Built with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

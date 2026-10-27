@@ -1,0 +1,527 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Domestic routes, July 2025 to June 2026: which cities are linked by air. Select a city to highlight its routes.",
+  "width": 660,
+  "height": 560,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ],
+    "center": {
+      "expr": "[focus_lon - 132, focus_lat]"
+    },
+    "scale": {
+      "expr": "933.7 * zoom * focus_zoom"
+    },
+    "translate": {
+      "expr": "[330.0 + pan_x, 280.0 + pan_y]"
+    }
+  },
+  "params": [
+    {
+      "name": "city",
+      "value": "All airports",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All airports",
+          "Adelaide",
+          "Albury",
+          "Alice Springs",
+          "Armidale",
+          "Ayers Rock",
+          "Ballina",
+          "Brisbane",
+          "Broome",
+          "Bundaberg",
+          "Cairns",
+          "Canberra",
+          "Coffs Harbour",
+          "Darwin",
+          "Devonport",
+          "Dubbo",
+          "Emerald",
+          "Geraldton",
+          "Gladstone",
+          "Gold Coast",
+          "Hamilton Island",
+          "Hobart",
+          "Kalgoorlie",
+          "Karratha",
+          "Launceston",
+          "Mackay",
+          "Melbourne",
+          "Mildura",
+          "Moranbah",
+          "Mount Isa",
+          "Newcastle",
+          "Newman",
+          "Orange",
+          "Perth",
+          "Port Hedland",
+          "Port Lincoln",
+          "Port Macquarie",
+          "Proserpine",
+          "Rockhampton",
+          "Sunshine Coast",
+          "Sydney",
+          "Tamworth",
+          "Townsville",
+          "Wagga Wagga"
+        ],
+        "name": "Select a city "
+      }
+    },
+    {
+      "name": "zoom",
+      "value": 1,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 8,
+        "step": 0.25,
+        "name": "Zoom "
+      }
+    },
+    {
+      "name": "focus",
+      "value": "Australia",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Australia",
+          "East coast",
+          "Western Australia",
+          "Northern Territory",
+          "Tasmania"
+        ],
+        "name": "Map focus "
+      }
+    },
+    {
+      "name": "focus_lon",
+      "expr": "{'Australia':133.2,'East coast':149.5,'Western Australia':120.5,'Northern Territory':133.5,'Tasmania':146.5}[focus]"
+    },
+    {
+      "name": "focus_lat",
+      "expr": "{'Australia':-27.0,'East coast':-31.5,'Western Australia':-25.5,'Northern Territory':-19.5,'Tasmania':-42.0}[focus]"
+    },
+    {
+      "name": "focus_zoom",
+      "expr": "{'Australia':1,'East coast':2.4,'Western Australia':1.7,'Northern Territory':2,'Tasmania':5}[focus]"
+    },
+    {
+      "name": "pan_x",
+      "value": 0
+    },
+    {
+      "name": "pan_y",
+      "value": 0
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ecebe6",
+        "stroke": "#ffffff",
+        "strokeWidth": 1,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "data/03_flowmap_routes_fy2026.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "passengers_fy2026": "number",
+            "origin_lat": "number",
+            "origin_lon": "number",
+            "dest_lat": "number",
+            "dest_lon": "number",
+            "distance_km": "number",
+            "rank": "number"
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "route",
+          "select": {
+            "type": "point",
+            "fields": [
+              "route"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeCap": "round",
+        "clip": true,
+        "strokeWidth": 1.6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "origin_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "origin_lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "dest_lon"
+        },
+        "latitude2": {
+          "field": "dest_lat"
+        },
+        "opacity": {
+          "condition": [
+            {
+              "param": "route",
+              "empty": false,
+              "value": 1
+            },
+            {
+              "test": "datum.role == 'Not connected'",
+              "value": 0.35
+            }
+          ],
+          "value": 0.85
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "title": "Route"
+          },
+          {
+            "field": "distance_km",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Distance (km)"
+          }
+        ],
+        "color": {
+          "field": "role",
+          "type": "nominal",
+          "title": "Routes",
+          "scale": {
+            "domain": [
+              "Connected to selected city",
+              "Not connected"
+            ],
+            "range": [
+              "#2a78d6",
+              "#c9ccd2"
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "direction": "vertical",
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "labelExpr": "city == 'All airports' && datum.label == 'Connected to selected city' ? 'All routes' : datum.label",
+            "labelLimit": 260
+          }
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "route",
+            "empty": false,
+            "value": 3.5
+          },
+          "value": 1.6
+        }
+      },
+      "transform": [
+        {
+          "calculate": "city == 'All airports' || datum.origin_city == city || datum.dest_city == city",
+          "as": "connected"
+        },
+        {
+          "calculate": "datum.connected ? 'Connected to selected city' : 'Not connected'",
+          "as": "role"
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "data/03_flowmap_routes_fy2026.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "passengers_fy2026": "number",
+            "origin_lat": "number",
+            "origin_lon": "number",
+            "dest_lat": "number",
+            "dest_lon": "number",
+            "distance_km": "number",
+            "rank": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "city == 'All airports' || datum.origin_city == city || datum.dest_city == city",
+          "as": "connected"
+        },
+        {
+          "calculate": "datum.origin_city",
+          "as": "airport"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#ffffff",
+        "strokeWidth": 1,
+        "opacity": 1,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "origin_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "origin_lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.connected",
+            "value": "#0d2b4e"
+          },
+          "value": "#b4b8bf"
+        },
+        "size": {
+          "condition": {
+            "test": "datum.airport == city",
+            "value": 110
+          },
+          "value": 38
+        },
+        "tooltip": [
+          {
+            "field": "airport",
+            "title": "Airport"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/03_flowmap_routes_fy2026.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "passengers_fy2026": "number",
+            "origin_lat": "number",
+            "origin_lon": "number",
+            "dest_lat": "number",
+            "dest_lon": "number",
+            "distance_km": "number",
+            "rank": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "city == 'All airports' || datum.origin_city == city || datum.dest_city == city",
+          "as": "connected"
+        },
+        {
+          "calculate": "datum.dest_city",
+          "as": "airport"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#ffffff",
+        "strokeWidth": 1,
+        "opacity": 1,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "dest_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "dest_lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.connected",
+            "value": "#0d2b4e"
+          },
+          "value": "#b4b8bf"
+        },
+        "size": {
+          "condition": {
+            "test": "datum.airport == city",
+            "value": 110
+          },
+          "value": 38
+        },
+        "tooltip": [
+          {
+            "field": "airport",
+            "title": "Airport"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/airports.csv"
+      },
+      "transform": [
+        {
+          "filter": "(indexof(['Sydney','Melbourne','Brisbane','Perth','Adelaide','Hobart','Darwin','Cairns','Canberra','Gold Coast','Port Hedland','Karratha','Alice Springs'], datum.city) >= 0) || zoom * focus_zoom >= 2 || datum.city == city"
+        },
+        {
+          "calculate": "datum.code == 'OOL' ? toNumber(datum.lat) - 0.75 : toNumber(datum.lat)",
+          "as": "label_lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -9,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#0b0b0b",
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "city"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 121.5,
+            "lat": -37.6,
+            "text": [
+              "Brisbane (19 routes), Sydney (18) and",
+              "Melbourne (15) are the best-connected hubs"
+            ]
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "city == 'All airports'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "clip": true,
+        "fontSize": 11.5,
+        "color": "#1f63b8",
+        "lineHeight": 15
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/03_flowmap_routes_fy2026.csv"
+      },
+      "transform": [
+        {
+          "filter": "city != 'All airports' && (datum.origin_city == city || datum.dest_city == city)"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ]
+        },
+        {
+          "calculate": "city + ': ' + datum.n + (datum.n == 1 ? ' route' : ' routes') + ' in this network'",
+          "as": "text"
+        },
+        {
+          "calculate": "121.5",
+          "as": "lon"
+        },
+        {
+          "calculate": "-37.6",
+          "as": "lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "clip": true,
+        "fontSize": 11.5,
+        "color": "#1f63b8",
+        "lineHeight": 15,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

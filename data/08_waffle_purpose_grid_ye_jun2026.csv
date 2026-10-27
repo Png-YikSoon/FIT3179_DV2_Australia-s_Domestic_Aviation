@@ -1,0 +1,201 @@
+trip_type,cell,col,row,purpose
+All trips (day + overnight),1,1,1,Holiday
+All trips (day + overnight),2,2,1,Holiday
+All trips (day + overnight),3,3,1,Holiday
+All trips (day + overnight),4,4,1,Holiday
+All trips (day + overnight),5,5,1,Holiday
+All trips (day + overnight),6,6,1,Holiday
+All trips (day + overnight),7,7,1,Holiday
+All trips (day + overnight),8,8,1,Holiday
+All trips (day + overnight),9,9,1,Holiday
+All trips (day + overnight),10,10,1,Holiday
+All trips (day + overnight),11,1,2,Holiday
+All trips (day + overnight),12,2,2,Holiday
+All trips (day + overnight),13,3,2,Holiday
+All trips (day + overnight),14,4,2,Holiday
+All trips (day + overnight),15,5,2,Holiday
+All trips (day + overnight),16,6,2,Holiday
+All trips (day + overnight),17,7,2,Holiday
+All trips (day + overnight),18,8,2,Holiday
+All trips (day + overnight),19,9,2,Holiday
+All trips (day + overnight),20,10,2,Holiday
+All trips (day + overnight),21,1,3,Holiday
+All trips (day + overnight),22,2,3,Holiday
+All trips (day + overnight),23,3,3,Holiday
+All trips (day + overnight),24,4,3,Holiday
+All trips (day + overnight),25,5,3,Holiday
+All trips (day + overnight),26,6,3,Holiday
+All trips (day + overnight),27,7,3,Holiday
+All trips (day + overnight),28,8,3,Holiday
+All trips (day + overnight),29,9,3,Holiday
+All trips (day + overnight),30,10,3,Holiday
+All trips (day + overnight),31,1,4,Holiday
+All trips (day + overnight),32,2,4,Holiday
+All trips (day + overnight),33,3,4,Holiday
+All trips (day + overnight),34,4,4,Holiday
+All trips (day + overnight),35,5,4,Holiday
+All trips (day + overnight),36,6,4,Holiday
+All trips (day + overnight),37,7,4,Holiday
+All trips (day + overnight),38,8,4,Holiday
+All trips (day + overnight),39,9,4,Holiday
+All trips (day + overnight),40,10,4,Holiday
+All trips (day + overnight),41,1,5,Holiday
+All trips (day + overnight),42,2,5,Holiday
+All trips (day + overnight),43,3,5,Holiday
+All trips (day + overnight),44,4,5,Holiday
+All trips (day + overnight),45,5,5,Holiday
+All trips (day + overnight),46,6,5,Holiday
+All trips (day + overnight),47,7,5,Holiday
+All trips (day + overnight),48,8,5,Holiday
+All trips (day + overnight),49,9,5,Holiday
+All trips (day + overnight),50,10,5,Holiday
+All trips (day + overnight),51,1,6,Visiting friends & relatives
+All trips (day + overnight),52,2,6,Visiting friends & relatives
+All trips (day + overnight),53,3,6,Visiting friends & relatives
+All trips (day + overnight),54,4,6,Visiting friends & relatives
+All trips (day + overnight),55,5,6,Visiting friends & relatives
+All trips (day + overnight),56,6,6,Visiting friends & relatives
+All trips (day + overnight),57,7,6,Visiting friends & relatives
+All trips (day + overnight),58,8,6,Visiting friends & relatives
+All trips (day + overnight),59,9,6,Visiting friends & relatives
+All trips (day + overnight),60,10,6,Visiting friends & relatives
+All trips (day + overnight),61,1,7,Visiting friends & relatives
+All trips (day + overnight),62,2,7,Visiting friends & relatives
+All trips (day + overnight),63,3,7,Visiting friends & relatives
+All trips (day + overnight),64,4,7,Visiting friends & relatives
+All trips (day + overnight),65,5,7,Visiting friends & relatives
+All trips (day + overnight),66,6,7,Visiting friends & relatives
+All trips (day + overnight),67,7,7,Visiting friends & relatives
+All trips (day + overnight),68,8,7,Visiting friends & relatives
+All trips (day + overnight),69,9,7,Visiting friends & relatives
+All trips (day + overnight),70,10,7,Visiting friends & relatives
+All trips (day + overnight),71,1,8,Visiting friends & relatives
+All trips (day + overnight),72,2,8,Visiting friends & relatives
+All trips (day + overnight),73,3,8,Visiting friends & relatives
+All trips (day + overnight),74,4,8,Visiting friends & relatives
+All trips (day + overnight),75,5,8,Visiting friends & relatives
+All trips (day + overnight),76,6,8,Visiting friends & relatives
+All trips (day + overnight),77,7,8,Visiting friends & relatives
+All trips (day + overnight),78,8,8,Visiting friends & relatives
+All trips (day + overnight),79,9,8,Visiting friends & relatives
+All trips (day + overnight),80,10,8,Visiting friends & relatives
+All trips (day + overnight),81,1,9,Visiting friends & relatives
+All trips (day + overnight),82,2,9,Visiting friends & relatives
+All trips (day + overnight),83,3,9,Visiting friends & relatives
+All trips (day + overnight),84,4,9,Business
+All trips (day + overnight),85,5,9,Business
+All trips (day + overnight),86,6,9,Business
+All trips (day + overnight),87,7,9,Business
+All trips (day + overnight),88,8,9,Business
+All trips (day + overnight),89,9,9,Business
+All trips (day + overnight),90,10,9,Business
+All trips (day + overnight),91,1,10,Other
+All trips (day + overnight),92,2,10,Other
+All trips (day + overnight),93,3,10,Other
+All trips (day + overnight),94,4,10,Other
+All trips (day + overnight),95,5,10,Other
+All trips (day + overnight),96,6,10,Other
+All trips (day + overnight),97,7,10,Other
+All trips (day + overnight),98,8,10,Other
+All trips (day + overnight),99,9,10,Other
+All trips (day + overnight),100,10,10,Other
+Overnight trips,1,1,1,Holiday
+Overnight trips,2,2,1,Holiday
+Overnight trips,3,3,1,Holiday
+Overnight trips,4,4,1,Holiday
+Overnight trips,5,5,1,Holiday
+Overnight trips,6,6,1,Holiday
+Overnight trips,7,7,1,Holiday
+Overnight trips,8,8,1,Holiday
+Overnight trips,9,9,1,Holiday
+Overnight trips,10,10,1,Holiday
+Overnight trips,11,1,2,Holiday
+Overnight trips,12,2,2,Holiday
+Overnight trips,13,3,2,Holiday
+Overnight trips,14,4,2,Holiday
+Overnight trips,15,5,2,Holiday
+Overnight trips,16,6,2,Holiday
+Overnight trips,17,7,2,Holiday
+Overnight trips,18,8,2,Holiday
+Overnight trips,19,9,2,Holiday
+Overnight trips,20,10,2,Holiday
+Overnight trips,21,1,3,Holiday
+Overnight trips,22,2,3,Holiday
+Overnight trips,23,3,3,Holiday
+Overnight trips,24,4,3,Holiday
+Overnight trips,25,5,3,Holiday
+Overnight trips,26,6,3,Holiday
+Overnight trips,27,7,3,Holiday
+Overnight trips,28,8,3,Holiday
+Overnight trips,29,9,3,Holiday
+Overnight trips,30,10,3,Holiday
+Overnight trips,31,1,4,Holiday
+Overnight trips,32,2,4,Holiday
+Overnight trips,33,3,4,Holiday
+Overnight trips,34,4,4,Holiday
+Overnight trips,35,5,4,Holiday
+Overnight trips,36,6,4,Holiday
+Overnight trips,37,7,4,Holiday
+Overnight trips,38,8,4,Holiday
+Overnight trips,39,9,4,Holiday
+Overnight trips,40,10,4,Holiday
+Overnight trips,41,1,5,Holiday
+Overnight trips,42,2,5,Holiday
+Overnight trips,43,3,5,Holiday
+Overnight trips,44,4,5,Holiday
+Overnight trips,45,5,5,Holiday
+Overnight trips,46,6,5,Holiday
+Overnight trips,47,7,5,Visiting friends & relatives
+Overnight trips,48,8,5,Visiting friends & relatives
+Overnight trips,49,9,5,Visiting friends & relatives
+Overnight trips,50,10,5,Visiting friends & relatives
+Overnight trips,51,1,6,Visiting friends & relatives
+Overnight trips,52,2,6,Visiting friends & relatives
+Overnight trips,53,3,6,Visiting friends & relatives
+Overnight trips,54,4,6,Visiting friends & relatives
+Overnight trips,55,5,6,Visiting friends & relatives
+Overnight trips,56,6,6,Visiting friends & relatives
+Overnight trips,57,7,6,Visiting friends & relatives
+Overnight trips,58,8,6,Visiting friends & relatives
+Overnight trips,59,9,6,Visiting friends & relatives
+Overnight trips,60,10,6,Visiting friends & relatives
+Overnight trips,61,1,7,Visiting friends & relatives
+Overnight trips,62,2,7,Visiting friends & relatives
+Overnight trips,63,3,7,Visiting friends & relatives
+Overnight trips,64,4,7,Visiting friends & relatives
+Overnight trips,65,5,7,Visiting friends & relatives
+Overnight trips,66,6,7,Visiting friends & relatives
+Overnight trips,67,7,7,Visiting friends & relatives
+Overnight trips,68,8,7,Visiting friends & relatives
+Overnight trips,69,9,7,Visiting friends & relatives
+Overnight trips,70,10,7,Visiting friends & relatives
+Overnight trips,71,1,8,Visiting friends & relatives
+Overnight trips,72,2,8,Visiting friends & relatives
+Overnight trips,73,3,8,Visiting friends & relatives
+Overnight trips,74,4,8,Visiting friends & relatives
+Overnight trips,75,5,8,Visiting friends & relatives
+Overnight trips,76,6,8,Visiting friends & relatives
+Overnight trips,77,7,8,Visiting friends & relatives
+Overnight trips,78,8,8,Visiting friends & relatives
+Overnight trips,79,9,8,Visiting friends & relatives
+Overnight trips,80,10,8,Visiting friends & relatives
+Overnight trips,81,1,9,Visiting friends & relatives
+Overnight trips,82,2,9,Visiting friends & relatives
+Overnight trips,83,3,9,Visiting friends & relatives
+Overnight trips,84,4,9,Visiting friends & relatives
+Overnight trips,85,5,9,Business
+Overnight trips,86,6,9,Business
+Overnight trips,87,7,9,Business
+Overnight trips,88,8,9,Business
+Overnight trips,89,9,9,Business
+Overnight trips,90,10,9,Business
+Overnight trips,91,1,10,Business
+Overnight trips,92,2,10,Business
+Overnight trips,93,3,10,Other
+Overnight trips,94,4,10,Other
+Overnight trips,95,5,10,Other
+Overnight trips,96,6,10,Other
+Overnight trips,97,7,10,Other
+Overnight trips,98,8,10,Other
+Overnight trips,99,9,10,Other
+Overnight trips,100,10,10,Other

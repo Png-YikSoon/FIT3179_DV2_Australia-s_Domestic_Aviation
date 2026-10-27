@@ -1,0 +1,215 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging bar chart: % change in passengers on the 20 busiest routes of 2019, comparing calendar year 2025 with 2019.",
+  "width": "container",
+  "height": {
+    "step": 21
+  },
+  "data": {
+    "url": "data/13_recovery_routes_2019_vs_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "passengers_2019": "number",
+        "passengers_2025": "number",
+        "change_pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "(datum.change_pct > 0 ? '+' : '') + (abs(datum.change_pct) < 0.5 ? '0' : format(datum.change_pct, '.0f')) + '%'",
+      "as": "label"
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "zero": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#52514e",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "zero",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "encoding": {
+        "y": {
+          "field": "route",
+          "type": "nominal",
+          "sort": {
+            "field": "change_pct",
+            "op": "max",
+            "order": "descending"
+          },
+          "title": "Route",
+          "axis": {
+            "domain": false,
+            "ticks": false,
+            "labelPadding": 8
+          }
+        },
+        "x": {
+          "field": "change_pct",
+          "type": "quantitative",
+          "title": "Change in passengers, 2025 compared with 2019 (%)",
+          "scale": {
+            "domain": [
+              -40,
+              25
+            ]
+          },
+          "axis": {
+            "values": [
+              -40,
+              -30,
+              -20,
+              -10,
+              0,
+              10,
+              20
+            ]
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "cornerRadiusEnd": 3,
+            "height": 14
+          },
+          "encoding": {
+            "color": {
+              "field": "direction",
+              "type": "nominal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  "Above 2019",
+                  "Below 2019"
+                ],
+                "range": [
+                  "#2a78d6",
+                  "#e34948"
+                ]
+              },
+              "legend": {
+                "orient": "top",
+                "direction": "horizontal"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "route",
+                "title": "Route"
+              },
+              {
+                "field": "passengers_2019",
+                "type": "quantitative",
+                "format": ",",
+                "title": "Passengers 2019"
+              },
+              {
+                "field": "passengers_2025",
+                "type": "quantitative",
+                "format": ",",
+                "title": "Passengers 2025"
+              },
+              {
+                "field": "change_pct",
+                "type": "quantitative",
+                "format": "+.1f",
+                "title": "Change (%)"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.change_pct >= 0"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 4,
+            "fontSize": 11,
+            "color": "#0b0b0b"
+          },
+          "encoding": {
+            "text": {
+              "field": "label"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.change_pct < 0"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "dx": -4,
+            "fontSize": 11,
+            "color": "#0b0b0b"
+          },
+          "encoding": {
+            "text": {
+              "field": "label"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "route": "Canberra – Sydney",
+                "change_pct": -34.4,
+                "x": 2,
+                "t": "Routes to Canberra fell most"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontStyle": "italic",
+            "fontSize": 11.5,
+            "color": "#c8322f",
+            "lineHeight": 15
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

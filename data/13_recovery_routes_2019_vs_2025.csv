@@ -1,0 +1,21 @@
+route_code,route,passengers_2019,passengers_2025,change_pct,direction
+BNE-PER,Brisbane – Perth,960632.0,1140132.0,18.7,Above 2019
+BNE-MKY,Brisbane – Mackay,775637.0,822805.0,6.1,Above 2019
+PER-SYD,Perth – Sydney,1692031.0,1749314.0,3.4,Above 2019
+CNS-MEL,Cairns – Melbourne,855876.0,878075.0,2.6,Above 2019
+BNE-CNS,Brisbane – Cairns,1292703.0,1313044.0,1.6,Above 2019
+ADL-SYD,Adelaide – Sydney,1878741.0,1904858.0,1.4,Above 2019
+MEL-OOL,Melbourne – Gold Coast,2121955.0,2146910.0,1.2,Above 2019
+BNE-MEL,Brisbane – Melbourne,3608681.0,3646094.0,1.0,Above 2019
+MEL-PER,Melbourne – Perth,2110125.0,2109230.0,-0.0,Below 2019
+ADL-BNE,Adelaide – Brisbane,875306.0,874879.0,-0.0,Below 2019
+BNE-TSV,Brisbane – Townsville,1018094.0,990802.0,-2.7,Below 2019
+ADL-MEL,Adelaide – Melbourne,2538061.0,2395818.0,-5.6,Below 2019
+LST-MEL,Launceston – Melbourne,959160.0,898062.0,-6.4,Below 2019
+OOL-SYD,Gold Coast – Sydney,2733109.0,2527688.0,-7.5,Below 2019
+BNE-SYD,Brisbane – Sydney,4821044.0,4382963.0,-9.1,Below 2019
+MEL-SYD,Melbourne – Sydney,9181932.0,8121167.0,-11.6,Below 2019
+HBA-MEL,Hobart – Melbourne,1670181.0,1460515.0,-12.6,Below 2019
+CNS-SYD,Cairns – Sydney,1078060.0,927134.0,-14.0,Below 2019
+CBR-MEL,Canberra – Melbourne,1184774.0,979092.0,-17.4,Below 2019
+CBR-SYD,Canberra – Sydney,931350.0,610685.0,-34.4,Below 2019

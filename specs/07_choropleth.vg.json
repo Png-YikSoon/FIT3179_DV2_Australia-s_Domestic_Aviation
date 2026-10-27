@@ -1,0 +1,294 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Change in domestic trips by state visited, year ending June 2026 compared with year ending June 2025.",
+  "width": 580,
+  "height": 480,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ],
+    "center": {
+      "expr": "[focus_lon - 132, focus_lat]"
+    },
+    "scale": {
+      "expr": "800.3 * zoom * focus_zoom"
+    },
+    "translate": {
+      "expr": "[290.0 + pan_x, 240.0 + pan_y]"
+    }
+  },
+  "params": [
+    {
+      "name": "measure",
+      "value": "all_trips_change_pct",
+      "bind": {
+        "input": "select",
+        "options": [
+          "all_trips_change_pct",
+          "overnight_trips_change_pct"
+        ],
+        "labels": [
+          "All trips (day + overnight)",
+          "Overnight trips"
+        ],
+        "name": "Show change in: "
+      }
+    },
+    {
+      "name": "zoom",
+      "value": 1,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 8,
+        "step": 0.25,
+        "name": "Zoom "
+      }
+    },
+    {
+      "name": "focus",
+      "value": "Australia",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Australia",
+          "East coast",
+          "Western Australia",
+          "Northern Territory",
+          "Tasmania"
+        ],
+        "name": "Map focus "
+      }
+    },
+    {
+      "name": "focus_lon",
+      "expr": "{'Australia':133.2,'East coast':149.5,'Western Australia':120.5,'Northern Territory':133.5,'Tasmania':146.5}[focus]"
+    },
+    {
+      "name": "focus_lat",
+      "expr": "{'Australia':-27.0,'East coast':-31.5,'Western Australia':-25.5,'Northern Territory':-19.5,'Tasmania':-42.0}[focus]"
+    },
+    {
+      "name": "focus_zoom",
+      "expr": "{'Australia':1,'East coast':2.4,'Western Australia':1.7,'Northern Territory':2,'Tasmania':5}[focus]"
+    },
+    {
+      "name": "pan_x",
+      "value": 0
+    },
+    {
+      "name": "pan_y",
+      "value": 0
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "data/07_choropleth_states_ye_jun2026.csv"
+            },
+            "key": "state",
+            "fields": [
+              "state_abbr",
+              "all_trips_change_pct",
+              "overnight_trips_change_pct",
+              "small_sample_caution"
+            ]
+          }
+        },
+        {
+          "calculate": "datum[measure]",
+          "as": "value"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5,
+        "clip": true
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Change (%)",
+          "scale": {
+            "domain": [
+              -10,
+              0,
+              10
+            ],
+            "range": [
+              "#e34948",
+              "#f0efec",
+              "#2a78d6"
+            ],
+            "clamp": true,
+            "interpolate": "lab"
+          },
+          "legend": {
+            "orient": "top-left",
+            "values": [
+              -10,
+              -5,
+              0,
+              5,
+              10
+            ],
+            "direction": "vertical",
+            "gradientLength": 110
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "State"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "format": "+.1f",
+            "title": "Change (%)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "transform": [
+        {
+          "filter": "measure == 'all_trips_change_pct' && datum.properties.name == 'Queensland'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#0b0b0b",
+        "strokeWidth": 2,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "data/07_choropleth_states_ye_jun2026.csv"
+      },
+      "transform": [
+        {
+          "calculate": "{'WA':[122,-25.5],'NT':[133.4,-19.5],'SA':[135.6,-30],'QLD':[144.5,-22.5],'NSW':[146.8,-32.3],'VIC':[144,-37],'TAS':[146.6,-42.2],'ACT':[152.6,-36.6]}[datum.state_abbr][0]",
+          "as": "lx"
+        },
+        {
+          "calculate": "{'WA':[122,-25.5],'NT':[133.4,-19.5],'SA':[135.6,-30],'QLD':[144.5,-22.5],'NSW':[146.8,-32.3],'VIC':[144,-37],'TAS':[146.6,-42.2],'ACT':[152.6,-36.6]}[datum.state_abbr][1]",
+          "as": "ly"
+        },
+        {
+          "calculate": "datum[measure]",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.state_abbr + ' ' + (datum.value > 0 ? '+' : '') + format(datum.value, '.1f') + '%' + (datum.small_sample_caution == 'True' || datum.small_sample_caution === true ? '*' : '')",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#0b0b0b",
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "m": "all_trips_change_pct",
+            "lon": 114,
+            "lat": -37.5,
+            "text": [
+              "Every state had more trips.",
+              "Queensland grew most (+7.7%)."
+            ]
+          },
+          {
+            "m": "overnight_trips_change_pct",
+            "lon": 114,
+            "lat": -37.5,
+            "text": [
+              "Overnight trips barely moved:",
+              "every state within ±2%."
+            ]
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.m == measure"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12,
+        "fontStyle": "italic",
+        "color": "#4a4945",
+        "lineHeight": 16,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

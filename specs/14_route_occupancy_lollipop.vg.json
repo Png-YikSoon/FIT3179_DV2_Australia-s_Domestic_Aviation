@@ -1,0 +1,145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Lollipop chart: passengers carried on Australia's 10 busiest domestic routes, July 2025 to June 2026 (both directions).",
+  "width": "container",
+  "height": {
+    "step": 30
+  },
+  "data": {
+    "url": "data/14_route_seats_fy2026.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "order": "number",
+        "seats": "number",
+        "passengers": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.route_code != 'OTHER'"
+    },
+    {
+      "calculate": "datum.passengers / 1e6",
+      "as": "pax_m"
+    },
+    {
+      "calculate": "format(datum.pax_m, '.1f') + 'M'",
+      "as": "label"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "route",
+      "type": "nominal",
+      "sort": {
+        "field": "passengers",
+        "op": "max",
+        "order": "descending"
+      },
+      "title": "Route",
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 8
+      }
+    },
+    "x": {
+      "field": "pax_m",
+      "type": "quantitative",
+      "title": "Passengers, July 2025–June 2026 (millions)",
+      "scale": {
+        "domain": [
+          0,
+          9
+        ]
+      },
+      "axis": {
+        "values": [
+          0,
+          2,
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "route",
+        "title": "Route"
+      },
+      {
+        "field": "passengers",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Passengers"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        },
+        "x2": {
+          "field": "pax_m"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.route_code == 'MEL-SYD'",
+            "value": "#eb6834"
+          },
+          "value": "#2a78d6"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 1,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5,
+        "size": 150
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.route_code == 'MEL-SYD'",
+            "value": "#eb6834"
+          },
+          "value": "#2a78d6"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#0b0b0b"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        },
+        "color": {
+          "value": "#0b0b0b"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

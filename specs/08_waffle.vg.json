@@ -1,0 +1,372 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Share of domestic trips by main reason, year ending June 2026. Each square is 1% of trips.",
+  "data": {
+    "url": "data/08_waffle_purpose_grid_ye_jun2026.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "col": "number",
+        "row": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.trip_type + '|' + datum.purpose",
+      "as": "key"
+    },
+    {
+      "lookup": "key",
+      "from": {
+        "data": {
+          "url": "data/08_waffle_purpose_summary_ye_jun2026.csv"
+        },
+        "key": "key",
+        "fields": [
+          "share_pct"
+        ]
+      }
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "trip_type",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "All trips (day + overnight)",
+        "Overnight trips"
+      ],
+      "header": {
+        "labelFontSize": 13,
+        "labelFontWeight": 600
+      }
+    }
+  },
+  "spec": {
+    "width": 358,
+    "height": 358,
+    "layer": [
+      {
+        "mark": {
+          "type": "rect",
+          "cornerRadius": 2
+        },
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "ascending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "descending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "color": {
+            "field": "purpose",
+            "type": "nominal",
+            "title": "Main reason for trip",
+            "scale": {
+              "domain": [
+                "Holiday",
+                "Visiting friends & relatives",
+                "Business",
+                "Other"
+              ],
+              "range": [
+                "#eb6834",
+                "#c2337a",
+                "#2a78d6",
+                "#b4b8bf"
+              ]
+            },
+            "legend": {
+              "orient": "bottom",
+              "columns": 2,
+              "labelFontSize": 14,
+              "titleFontSize": 14,
+              "symbolSize": 280,
+              "columnPadding": 24,
+              "offset": 43,
+              "rowPadding": 8,
+              "titlePadding": 8,
+              "labelLimit": 0
+            }
+          },
+          "tooltip": [
+            {
+              "field": "trip_type",
+              "title": "Trips"
+            },
+            {
+              "field": "purpose",
+              "title": "Reason"
+            },
+            {
+              "field": "share_pct",
+              "type": "quantitative",
+              "format": ".1f",
+              "title": "Share (%)"
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "{'All trips (day + overnight)|Holiday':'1,3','All trips (day + overnight)|Visiting friends & relatives':'1,7','All trips (day + overnight)|Business':'4,9','All trips (day + overnight)|Other':'1,10','Overnight trips|Holiday':'1,3','Overnight trips|Visiting friends & relatives':'1,7','Overnight trips|Business':'5,9','Overnight trips|Other':'3,10'}[datum.key] == datum.col + ',' + datum.row"
+          },
+          {
+            "calculate": "format(datum.share_pct, '.1f') + '%'",
+            "as": "pct_txt"
+          },
+          {
+            "calculate": "datum.col + 2",
+            "as": "col_end"
+          },
+          {
+            "calculate": "datum.row - 1",
+            "as": "row_end"
+          },
+          {
+            "filter": "!(datum.purpose == 'Visiting friends & relatives')"
+          }
+        ],
+        "mark": {
+          "type": "rect",
+          "fill": "#ffffff",
+          "opacity": 0.94,
+          "cornerRadius": 4,
+          "xOffset": -12
+        },
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "ascending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "x2": {
+            "field": "col_end"
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "descending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "{'All trips (day + overnight)|Holiday':'1,3','All trips (day + overnight)|Visiting friends & relatives':'1,7','All trips (day + overnight)|Business':'4,9','All trips (day + overnight)|Other':'1,10','Overnight trips|Holiday':'1,3','Overnight trips|Visiting friends & relatives':'1,7','Overnight trips|Business':'5,9','Overnight trips|Other':'3,10'}[datum.key] == datum.col + ',' + datum.row"
+          },
+          {
+            "calculate": "format(datum.share_pct, '.1f') + '%'",
+            "as": "pct_txt"
+          },
+          {
+            "calculate": "datum.col + 2",
+            "as": "col_end"
+          },
+          {
+            "calculate": "datum.row - 1",
+            "as": "row_end"
+          },
+          {
+            "filter": "datum.purpose == 'Visiting friends & relatives'"
+          }
+        ],
+        "mark": {
+          "type": "rect",
+          "fill": "#ffffff",
+          "opacity": 0.94,
+          "cornerRadius": 4,
+          "xOffset": -12
+        },
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "ascending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "x2": {
+            "field": "col_end"
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "descending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "{'All trips (day + overnight)|Holiday':'1,3','All trips (day + overnight)|Visiting friends & relatives':'1,7','All trips (day + overnight)|Business':'4,9','All trips (day + overnight)|Other':'1,10','Overnight trips|Holiday':'1,3','Overnight trips|Visiting friends & relatives':'1,7','Overnight trips|Business':'5,9','Overnight trips|Other':'3,10'}[datum.key] == datum.col + ',' + datum.row"
+          },
+          {
+            "calculate": "format(datum.share_pct, '.1f') + '%'",
+            "as": "pct_txt"
+          },
+          {
+            "calculate": "datum.col + 2",
+            "as": "col_end"
+          },
+          {
+            "calculate": "datum.row - 1",
+            "as": "row_end"
+          },
+          {
+            "filter": "!(datum.purpose == 'Visiting friends & relatives')"
+          },
+          {
+            "calculate": "datum.pct_txt",
+            "as": "lab"
+          },
+          {
+            "calculate": "{'Holiday':'#c4501f','Visiting friends & relatives':'#a8286a','Business':'#1f63b8','Other':'#0b0b0b'}[datum.purpose]",
+            "as": "txt_col"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": -6,
+          "fontSize": 12.5,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "ascending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "descending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "text": {
+            "field": "lab"
+          },
+          "color": {
+            "field": "txt_col",
+            "type": "nominal",
+            "scale": null,
+            "legend": null
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "{'All trips (day + overnight)|Holiday':'1,3','All trips (day + overnight)|Visiting friends & relatives':'1,7','All trips (day + overnight)|Business':'4,9','All trips (day + overnight)|Other':'1,10','Overnight trips|Holiday':'1,3','Overnight trips|Visiting friends & relatives':'1,7','Overnight trips|Business':'5,9','Overnight trips|Other':'3,10'}[datum.key] == datum.col + ',' + datum.row"
+          },
+          {
+            "calculate": "format(datum.share_pct, '.1f') + '%'",
+            "as": "pct_txt"
+          },
+          {
+            "calculate": "datum.col + 2",
+            "as": "col_end"
+          },
+          {
+            "calculate": "datum.row - 1",
+            "as": "row_end"
+          },
+          {
+            "filter": "datum.purpose == 'Visiting friends & relatives'"
+          },
+          {
+            "calculate": "datum.pct_txt",
+            "as": "lab"
+          },
+          {
+            "calculate": "{'Holiday':'#c4501f','Visiting friends & relatives':'#a8286a','Business':'#1f63b8','Other':'#0b0b0b'}[datum.purpose]",
+            "as": "txt_col"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": -6,
+          "dy": 0,
+          "fontSize": 12.5,
+          "fontWeight": "bold",
+          "lineHeight": 15
+        },
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "ascending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "descending",
+            "scale": {
+              "paddingInner": 0.12
+            }
+          },
+          "text": {
+            "field": "lab"
+          },
+          "color": {
+            "field": "txt_col",
+            "type": "nominal",
+            "scale": null,
+            "legend": null
+          }
+        }
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "spacing": 24
+}

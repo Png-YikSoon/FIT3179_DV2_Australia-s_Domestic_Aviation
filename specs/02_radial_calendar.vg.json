@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Radial calendar: each ring is a year (2015 inner to 2025 outer), each segment a month. Colour shows how busy a month was compared with that year's average month.",
+  "width": 540,
+  "height": 540,
+  "data": {
+    "url": "data/02_calendar_monthly.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "month_num": "number",
+        "index_vs_year_avg": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "isValid(datum.index_vs_year_avg)"
+    },
+    {
+      "calculate": "PI*0.06 + (datum.month_num-1)*(2*PI*(1-0.06))/12",
+      "as": "t0"
+    },
+    {
+      "calculate": "PI*0.06 + datum.month_num*(2*PI*(1-0.06))/12",
+      "as": "t1"
+    },
+    {
+      "calculate": "70 + (datum.year-2015)*15",
+      "as": "r0"
+    },
+    {
+      "calculate": "datum.r0 + 14",
+      "as": "r1"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "theta": {
+          "field": "t0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "theta2": {
+          "field": "t1"
+        },
+        "radius": {
+          "field": "r0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "radius2": {
+          "field": "r1"
+        },
+        "color": {
+          "field": "index_vs_year_avg",
+          "type": "quantitative",
+          "title": [
+            "Compared with",
+            "average month"
+          ],
+          "scale": {
+            "domain": [
+              80,
+              100,
+              120
+            ],
+            "range": [
+              "#e34948",
+              "#f0efec",
+              "#2a78d6"
+            ],
+            "clamp": true,
+            "interpolate": "lab"
+          },
+          "legend": {
+            "labelExpr": "datum.value == 100 ? 'Average' : datum.value + ''",
+            "values": [
+              80,
+              90,
+              100,
+              110,
+              120
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "month",
+            "title": "Month"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "passengers",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Passengers"
+          },
+          {
+            "field": "index_vs_year_avg",
+            "type": "quantitative",
+            "title": "Index (100 = average month)"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.month_num == 1 && (datum.year % 2 == 1)"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#52514e",
+        "align": "right",
+        "dx": -2
+      },
+      "encoding": {
+        "theta": {
+          "value": 0
+        },
+        "radius": {
+          "field": "r0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "year"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "color": "#52514e"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        },
+        {
+          "calculate": "(datum.t0 + datum.t1) / 2",
+          "as": "tm"
+        }
+      ],
+      "encoding": {
+        "theta": {
+          "field": "tm",
+          "type": "quantitative",
+          "scale": null
+        },
+        "radius": {
+          "value": 254
+        },
+        "text": {
+          "field": "month"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

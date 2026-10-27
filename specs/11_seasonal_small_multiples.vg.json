@@ -1,0 +1,283 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Small multiples: average monthly passengers 2023–2025 on eight routes, as % above or below each route's typical month (0% = typical month). One row per route type; each panel labels its busiest and quietest month.",
+  "data": {
+    "url": "data/11_seasonal_selected_routes_2023_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month_num": "number",
+        "avg_passengers": "number",
+        "index_vs_route_avg": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.index_vs_route_avg - 100",
+      "as": "pct"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "pct",
+          "as": "pct_max"
+        },
+        {
+          "op": "min",
+          "field": "pct",
+          "as": "pct_min"
+        }
+      ],
+      "groupby": [
+        "route"
+      ]
+    }
+  ],
+  "facet": {
+    "field": "route",
+    "type": "nominal",
+    "title": null,
+    "sort": [
+      "Brisbane – Sydney",
+      "Canberra – Sydney",
+      "Melbourne – Sydney",
+      "Cairns – Sydney",
+      "Hobart – Melbourne",
+      "Melbourne – Gold Coast",
+      "Kalgoorlie – Perth",
+      "Perth – Port Hedland"
+    ],
+    "header": {
+      "labelFontSize": 13,
+      "labelFontWeight": "bold",
+      "labelAnchor": "start",
+      "labelPadding": 6
+    }
+  },
+  "columns": 3,
+  "spacing": {
+    "row": 20,
+    "column": 16
+  },
+  "spec": {
+    "width": 182,
+    "height": 130,
+    "encoding": {
+      "x": {
+        "field": "month_num",
+        "type": "quantitative",
+        "title": "Month",
+        "scale": {
+          "domain": [
+            1,
+            12
+          ],
+          "nice": false
+        },
+        "axis": {
+          "values": [
+            1,
+            4,
+            7,
+            10
+          ],
+          "labelExpr": "{1: 'Jan', 4: 'Apr', 7: 'Jul', 10: 'Oct', 12: 'Dec'}[datum.value]",
+          "grid": false,
+          "labelFontSize": 11
+        }
+      },
+      "y": {
+        "field": "pct",
+        "type": "quantitative",
+        "title": "% vs typical month",
+        "scale": {
+          "domain": [
+            -40,
+            35
+          ]
+        },
+        "axis": {
+          "values": [
+            -30,
+            -15,
+            0,
+            15,
+            30
+          ],
+          "labelExpr": "datum.value == 0 ? '0%' : (datum.value > 0 ? '+' : '') + datum.value + '%'",
+          "labelFontSize": 11,
+          "gridColor": "#eceef1"
+        }
+      },
+      "color": {
+        "field": "route_type",
+        "type": "nominal",
+        "title": "Route type",
+        "scale": {
+          "domain": [
+            "Business corridor",
+            "Leisure",
+            "Mining (FIFO)"
+          ],
+          "range": [
+            "#2a78d6",
+            "#eb6834",
+            "#c2337a"
+          ]
+        },
+        "legend": {
+          "orient": "top",
+          "direction": "horizontal",
+          "titleFontSize": 14,
+          "titleFontWeight": "bold",
+          "titleColor": "#0b0b0b",
+          "labelFontSize": 13,
+          "labelColor": "#0b0b0b",
+          "symbolType": "stroke",
+          "symbolStrokeWidth": 5,
+          "symbolSize": 500,
+          "columnPadding": 18,
+          "offset": 14,
+          "labelExpr": "{'Business corridor': 'Business corridors', 'Leisure': 'Leisure routes', 'Mining (FIFO)': 'Mining (FIFO) routes'}[datum.label]",
+          "symbolOpacity": 1,
+          "labelLimit": 0
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "area",
+          "opacity": 0.14,
+          "interpolate": "monotone"
+        },
+        "encoding": {
+          "y2": {
+            "datum": 0
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "rule",
+          "color": "#4a4945",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "y": {
+            "datum": 0
+          },
+          "color": {
+            "value": "#4a4945"
+          },
+          "x": {
+            "datum": 1
+          },
+          "x2": {
+            "datum": 12
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "strokeWidth": 2.5,
+          "interpolate": "monotone"
+        },
+        "encoding": {
+          "tooltip": [
+            {
+              "field": "route",
+              "title": "Route"
+            },
+            {
+              "field": "month",
+              "title": "Month"
+            },
+            {
+              "field": "avg_passengers",
+              "type": "quantitative",
+              "format": ",.0f",
+              "title": "Avg passengers (2023–25)"
+            },
+            {
+              "field": "pct",
+              "type": "quantitative",
+              "format": "+.1f",
+              "title": "% vs typical month"
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.pct == datum.pct_max || datum.pct == datum.pct_min"
+          }
+        ],
+        "mark": {
+          "type": "circle",
+          "size": 45,
+          "opacity": 1,
+          "stroke": "#ffffff",
+          "strokeWidth": 1
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.pct == datum.pct_max || datum.pct == datum.pct_min"
+          },
+          {
+            "calculate": "datum.month + ' ' + (datum.pct > 0 ? '+' : '−') + format(abs(datum.pct), '.0f') + '%'",
+            "as": "lab"
+          },
+          {
+            "calculate": "datum.pct + (datum.pct > 0 ? 7 : -8)",
+            "as": "ly"
+          },
+          {
+            "calculate": "max(2.8, min(10.2, datum.month_num))",
+            "as": "lx"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "baseline": "middle"
+        },
+        "encoding": {
+          "text": {
+            "field": "lab"
+          },
+          "x": {
+            "field": "lx",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "ly",
+            "type": "quantitative"
+          }
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "shared",
+      "x": "shared"
+    },
+    "axis": {
+      "x": "independent",
+      "y": "independent"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

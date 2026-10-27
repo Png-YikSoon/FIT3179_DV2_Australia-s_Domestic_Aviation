@@ -1,0 +1,317 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slope chart: six national airline measures, % change from 2019 to 2025 (0 = 2019 level). Source: BITRE domestic aviation activity annual summary.",
+  "width": "container",
+  "height": 420,
+  "data": {
+    "url": "data/15_slope_2019_vs_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "value": "number",
+        "index": "number",
+        "label_y": "number",
+        "change_pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.year == 2019 ? 0 : 1",
+      "as": "pos"
+    },
+    {
+      "calculate": "datum.change_pct > 0 ? 'Higher than 2019' : 'Lower than 2019'",
+      "as": "direction"
+    },
+    {
+      "calculate": "(datum.change_pct > 0 ? '+' : '−') + format(abs(datum.change_pct), '.1f') + '%'",
+      "as": "change_label"
+    },
+    {
+      "calculate": "datum.unit == '% of seats' ? format(datum.value, '.1f') + '%' : datum.unit == 'km' ? format(datum.value, ',.0f') + ' km' : datum.value < 1000 ? format(datum.value, '.1f') : format(datum.value, ',.0f')",
+      "as": "value_label"
+    },
+    {
+      "calculate": "datum.index - 100",
+      "as": "pct"
+    },
+    {
+      "calculate": "datum.label_y - 100",
+      "as": "pct_label_y"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "pos",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -0.06,
+          1.55
+        ]
+      },
+      "axis": {
+        "orient": "top",
+        "values": [
+          0,
+          1
+        ],
+        "title": null,
+        "labelExpr": "datum.value == 0 ? '2019' : '2025'",
+        "labelFontSize": 13,
+        "labelFontWeight": "bold",
+        "labelColor": "#0b0b0b",
+        "grid": true,
+        "gridColor": "#c9ccd2",
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 8
+      }
+    },
+    "y": {
+      "field": "pct",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -7,
+          6
+        ]
+      },
+      "axis": {
+        "title": "Change since 2019 (%)",
+        "values": [
+          -6,
+          -4,
+          -2,
+          0,
+          2,
+          4,
+          6
+        ],
+        "grid": false,
+        "labelExpr": "(datum.value > 0 ? '+' : '') + datum.value + '%'"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#4a4945",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        },
+        "x2": {
+          "datum": 1
+        },
+        "y": {
+          "datum": 0
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.measure == 'Flights' && datum.year == 2019"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 11,
+        "color": "#7d7b76",
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "x": {
+          "datum": 1
+        },
+        "y": {
+          "datum": 0
+        },
+        "text": {
+          "value": "2019 level"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.measure == 'Flights' && datum.year == 2019"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "detail": {
+          "field": "measure"
+        },
+        "color": {
+          "field": "direction",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Higher than 2019",
+              "Lower than 2019"
+            ],
+            "range": [
+              "#2a78d6",
+              "#eb6834"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "title": null,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 70,
+        "opacity": 1,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.year == 2019",
+            "value": "#0d2b4e"
+          },
+          "field": "direction",
+          "type": "nominal",
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "measure",
+            "title": "Measure"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "value_label",
+            "title": "Value"
+          },
+          {
+            "field": "pct",
+            "type": "quantitative",
+            "format": "+.1f",
+            "title": "Change since 2019 (%)"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 12,
+        "fontSize": 12
+      },
+      "encoding": {
+        "y": {
+          "field": "pct_label_y"
+        },
+        "text": {
+          "field": "measure"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.change_pct > 0",
+            "value": "#1f63b8"
+          },
+          "value": "#c4501f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 12,
+        "dy": 14,
+        "fontSize": 11.5,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "y": {
+          "field": "pct_label_y"
+        },
+        "text": {
+          "field": "change_label"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.change_pct > 0",
+            "value": "#1f63b8"
+          },
+          "value": "#c4501f"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 11,
+        "color": "#4a4945"
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        },
+        "y": {
+          "datum": 5.4
+        },
+        "text": {
+          "value": "All six measures start at 0% (their 2019 level)"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.measure == 'Flights' && datum.year == 2019"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

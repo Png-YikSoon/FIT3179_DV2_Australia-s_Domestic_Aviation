@@ -1,0 +1,173 @@
+/* ------------------------------------------------------------------
+   Up in the Air — styles
+   One typeface (Verdana) throughout; chart fonts are set in js/main.js.
+   Layout: navy title banner, light grey page, white chart cards.
+   Every card = title + subtitle on top, chart on the left, findings on the right.
+------------------------------------------------------------------- */
+:root {
+  --page: #f4f6f9;
+  --surface: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #4a4945;
+  --muted: #7d7b76;
+  --rule: #dcdfe4;
+  --navy: #0d2b4e;
+  --accent: #2a78d6;
+  --insight-bg: #f2f5f9;
+  --font: Verdana, Geneva, "DejaVu Sans", sans-serif;
+  --title-font: "Times New Roman", Times, "Liberation Serif", serif;
+  --max: 1200px;      /* page width */
+  --panel: 300px;     /* findings panel width */
+  --pad: 28px;        /* card padding = the shared left edge (sight line) */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- headings: page title, section titles and chart titles in Times New Roman ---------- */
+.hero h1, h2, h3 { font-family: var(--title-font); }
+
+/* ---------- navy title banner ---------- */
+.hero { background: var(--navy); color: #fff; padding: 60px 0 48px; }
+.hero .kicker { color: #9ec5f4; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 10px; }
+.hero h1 { font-size: 50px; max-width: 18em; line-height: 1.05; margin: 0 0 16px; font-weight: bold; }
+.hero .lede { max-width: 64ch; font-size: 16px; color: #e6eef8; margin: 0; }
+
+/* ---------- sticky jump-to bar ---------- */
+.jump {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 1px 3px rgba(13, 43, 78, 0.06);
+}
+.jump .wrap { display: flex; gap: 4px; overflow-x: auto; }
+.jump a {
+  flex: 0 0 auto; padding: 13px 12px 10px;
+  color: var(--ink-2); text-decoration: none; font-size: 13.5px; white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.jump a span { color: var(--muted); font-weight: bold; margin-right: 5px; }
+.jump a:hover { color: var(--accent); }
+.jump a.active { color: var(--navy); font-weight: bold; border-bottom-color: var(--accent); }
+.jump a.active span { color: var(--accent); }
+
+/* ---------- sections ---------- */
+section { padding: 48px 0 8px; scroll-margin-top: 46px; }
+section + section { border-top: 1px solid var(--rule); }
+.section-num { color: var(--accent); font-size: 13px; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin: 0; }
+h2 { font-size: 32px; line-height: 1.15; margin: 2px 0 24px; color: var(--navy); }
+.callout { color: var(--ink-2); max-width: 80ch; border-left: 3px solid var(--accent); padding-left: 12px; margin: -6px 0 24px; }
+
+/* ---------- chart cards ---------- */
+.chart-block {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 24px var(--pad) 24px;
+  margin: 0 0 28px;
+}
+.chart-head { margin-bottom: 18px; }
+h3 { font-size: 22px; line-height: 1.3; margin: 0 0 6px; color: var(--ink); }
+.subtitle { color: var(--ink-2); font-family: var(--title-font); font-size: 16.5px; line-height: 1.45; margin: 0; }  /* line breaks in the HTML: 9–10 words per line */
+
+/* chart on the left, findings panel on the right — the same on every card */
+.chart-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--panel);
+  gap: 32px;
+  align-items: start;     /* findings panel fits its own text: no empty grey block under the findings */
+}
+.chart-col { min-width: 0; }
+.vis { width: 100%; }
+.vis-center { display: flex; justify-content: center; }
+.vega-embed { width: 100%; }
+.vis-center .vega-embed { width: auto; }
+
+/* ---------- findings panel ---------- */
+.insight {
+  align-self: start;
+  background: var(--insight-bg);
+  border-left: 4px solid var(--navy);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 18px 6px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.insight-label {
+  margin: 0 0 12px; font-size: 13.5px; font-weight: bold; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted);
+}
+.finding { margin: 0 0 14px; }
+.finding h4 { margin: 0 0 3px; font-size: 13.5px; line-height: 1.35; color: var(--navy); }
+.finding p { margin: 0; color: var(--ink-2); }
+.finding strong { color: var(--ink); }
+.insight-note { margin: 0 0 12px; font-size: 11.5px; color: var(--muted); font-style: italic; }
+
+/* colour-coded words = the chart colours, darkened for readable contrast (no red–green pairs) */
+.k-blue,    .finding strong.k-blue    { color: #1f63b8; }
+.k-red,     .finding strong.k-red     { color: #c8322f; }
+.k-orange,  .finding strong.k-orange  { color: #c4501f; }
+.k-magenta, .finding strong.k-magenta { color: #a8286a; }
+
+/* ---------- map controls: Vega-Lite bindings + reset button ---------- */
+.vega-bindings {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px;
+  font-family: var(--font); font-size: 13px; margin-top: 10px; width: 100%;
+}
+.vega-bind label { display: inline-flex; align-items: center; gap: 8px; }
+.vega-bind-name { font-weight: bold; color: var(--ink); }
+.vega-bindings select { font: inherit; padding: 4px 8px; border: 1px solid #c9ccd2; border-radius: 6px; background: #fff; }
+.vega-bindings input[type=range] { accent-color: var(--accent); width: 140px; }
+.reset {
+  display: block; margin: 10px auto 0;
+  font: inherit; font-size: 13px; color: var(--accent); background: #fff;
+  border: 1px solid var(--accent); border-radius: 6px; padding: 5px 14px; cursor: pointer;
+}
+.reset:hover { background: var(--insight-bg); }
+
+/* ---------- conclusion + footer ---------- */
+.conclusion-card {
+  display: flex; align-items: center; gap: 40px;
+  max-width: 920px; margin: 4px 0 24px; padding: 30px 40px;
+  background: rgba(42, 120, 214, 0.07);              /* half-transparent blue panel */
+  border: 1px solid rgba(42, 120, 214, 0.15); border-radius: 14px;
+}
+.conclusion-icon { flex: 0 0 150px; width: 150px; height: 150px; }
+.conclusion-text { color: var(--ink); font-family: var(--title-font); font-size: 19px; line-height: 1.5; }
+.conclusion-text h2 { margin: 0 0 8px; font-size: 28px; }
+.conclusion-text p { margin: 0; }
+footer { padding: 32px 0 56px; color: var(--ink-2); font-size: 12.5px; border-top: 1px solid var(--rule); margin-top: 24px; }
+footer a { color: var(--accent); word-break: break-word; }
+.footer-h { font-size: 18px; margin: 22px 0 8px; color: var(--navy); }
+.references { list-style: none; padding: 0; margin: 0; }
+.references li { padding-left: 2.2em; text-indent: -2.2em; margin-bottom: 8px; }  /* APA hanging indent */
+.ai-note { max-width: 90ch; }
+
+/* ---------- narrow screens: findings stack under the chart ---------- */
+@media (max-width: 1000px) {
+  .subtitle br, .conclusion-text br { display: none; }   /* let text wrap naturally on small screens */
+  .conclusion-card { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .chart-row { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 40px; }
+}
+
+/* ---------- Vega-Lite three-dot (actions) menu ---------- */
+.vega-embed .vega-actions { font-family: var(--font); font-size: 13px; z-index: 5; }
+.vega-embed summary { opacity: 0.6; }
+.vega-embed:hover summary, .vega-embed details[open] summary { opacity: 1; }
+
+/* ---------- map gestures: drag to move, pinch / Ctrl + scroll to zoom ---------- */
+.vis-map svg { cursor: grab; }
+.vis-map.dragging svg { cursor: grabbing; }
+.map-hint { margin: 8px 0 0; text-align: center; font-size: 12px; color: var(--muted); }

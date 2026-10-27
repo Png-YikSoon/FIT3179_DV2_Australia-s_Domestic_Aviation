@@ -1,0 +1,181 @@
+route_rank,route_code,route,year,month_num,month,fy_month_order,passengers,seats,load_factor
+1,MEL-SYD,Melbourne – Sydney,2025,7,Jul,1,681592.0,817159.0,83.4
+1,MEL-SYD,Melbourne – Sydney,2025,8,Aug,2,684904.0,811193.0,84.5
+1,MEL-SYD,Melbourne – Sydney,2025,9,Sep,3,655101.0,821350.0,79.8
+1,MEL-SYD,Melbourne – Sydney,2025,10,Oct,4,741565.0,864804.0,85.8
+1,MEL-SYD,Melbourne – Sydney,2025,11,Nov,5,703840.0,790170.0,89.1
+1,MEL-SYD,Melbourne – Sydney,2025,12,Dec,6,674539.0,769480.0,87.7
+1,MEL-SYD,Melbourne – Sydney,2026,1,Jan,7,640750.0,728333.0,88.0
+1,MEL-SYD,Melbourne – Sydney,2026,2,Feb,8,639839.0,737350.0,86.8
+1,MEL-SYD,Melbourne – Sydney,2026,3,Mar,9,726963.0,829648.0,87.6
+1,MEL-SYD,Melbourne – Sydney,2026,4,Apr,10,659583.0,791439.0,83.4
+1,MEL-SYD,Melbourne – Sydney,2026,5,May,11,650246.0,769387.0,84.5
+1,MEL-SYD,Melbourne – Sydney,2026,6,Jun,12,621564.0,729434.0,85.2
+2,BNE-SYD,Brisbane – Sydney,2025,7,Jul,1,388848.0,444114.0,87.6
+2,BNE-SYD,Brisbane – Sydney,2025,8,Aug,2,368812.0,424474.0,86.9
+2,BNE-SYD,Brisbane – Sydney,2025,9,Sep,3,359996.0,437653.0,82.3
+2,BNE-SYD,Brisbane – Sydney,2025,10,Oct,4,415611.0,474284.0,87.6
+2,BNE-SYD,Brisbane – Sydney,2025,11,Nov,5,388542.0,439653.0,88.4
+2,BNE-SYD,Brisbane – Sydney,2025,12,Dec,6,382656.0,435027.0,88.0
+2,BNE-SYD,Brisbane – Sydney,2026,1,Jan,7,338822.0,409295.0,82.8
+2,BNE-SYD,Brisbane – Sydney,2026,2,Feb,8,323786.0,383079.0,84.5
+2,BNE-SYD,Brisbane – Sydney,2026,3,Mar,9,375834.0,436728.0,86.1
+2,BNE-SYD,Brisbane – Sydney,2026,4,Apr,10,380144.0,439107.0,86.6
+2,BNE-SYD,Brisbane – Sydney,2026,5,May,11,360227.0,409058.0,88.1
+2,BNE-SYD,Brisbane – Sydney,2026,6,Jun,12,345963.0,404331.0,85.6
+3,BNE-MEL,Brisbane – Melbourne,2025,7,Jul,1,326556.0,382112.0,85.5
+3,BNE-MEL,Brisbane – Melbourne,2025,8,Aug,2,307289.0,350584.0,87.7
+3,BNE-MEL,Brisbane – Melbourne,2025,9,Sep,3,317940.0,382344.0,83.2
+3,BNE-MEL,Brisbane – Melbourne,2025,10,Oct,4,336391.0,384855.0,87.4
+3,BNE-MEL,Brisbane – Melbourne,2025,11,Nov,5,319138.0,370501.0,86.1
+3,BNE-MEL,Brisbane – Melbourne,2025,12,Dec,6,333591.0,392580.0,85.0
+3,BNE-MEL,Brisbane – Melbourne,2026,1,Jan,7,316962.0,378650.0,83.7
+3,BNE-MEL,Brisbane – Melbourne,2026,2,Feb,8,254370.0,318568.0,79.9
+3,BNE-MEL,Brisbane – Melbourne,2026,3,Mar,9,307524.0,377115.0,81.6
+3,BNE-MEL,Brisbane – Melbourne,2026,4,Apr,10,304756.0,361605.0,84.3
+3,BNE-MEL,Brisbane – Melbourne,2026,5,May,11,284736.0,334518.0,85.1
+3,BNE-MEL,Brisbane – Melbourne,2026,6,Jun,12,287002.0,332568.0,86.3
+4,OOL-SYD,Gold Coast – Sydney,2025,7,Jul,1,228419.0,262659.0,87.0
+4,OOL-SYD,Gold Coast – Sydney,2025,8,Aug,2,213927.0,239592.0,89.3
+4,OOL-SYD,Gold Coast – Sydney,2025,9,Sep,3,220532.0,253747.0,86.9
+4,OOL-SYD,Gold Coast – Sydney,2025,10,Oct,4,237795.0,257089.0,92.5
+4,OOL-SYD,Gold Coast – Sydney,2025,11,Nov,5,213428.0,228235.0,93.5
+4,OOL-SYD,Gold Coast – Sydney,2025,12,Dec,6,233904.0,264677.0,88.4
+4,OOL-SYD,Gold Coast – Sydney,2026,1,Jan,7,248075.0,272610.0,91.0
+4,OOL-SYD,Gold Coast – Sydney,2026,2,Feb,8,185066.0,203690.0,90.9
+4,OOL-SYD,Gold Coast – Sydney,2026,3,Mar,9,205896.0,228255.0,90.2
+4,OOL-SYD,Gold Coast – Sydney,2026,4,Apr,10,227049.0,263326.0,86.2
+4,OOL-SYD,Gold Coast – Sydney,2026,5,May,11,205044.0,235210.0,87.2
+4,OOL-SYD,Gold Coast – Sydney,2026,6,Jun,12,190998.0,224229.0,85.2
+5,ADL-MEL,Adelaide – Melbourne,2025,7,Jul,1,198674.0,241339.0,82.3
+5,ADL-MEL,Adelaide – Melbourne,2025,8,Aug,2,197072.0,238067.0,82.8
+5,ADL-MEL,Adelaide – Melbourne,2025,9,Sep,3,196205.0,245843.0,79.8
+5,ADL-MEL,Adelaide – Melbourne,2025,10,Oct,4,215657.0,248554.0,86.8
+5,ADL-MEL,Adelaide – Melbourne,2025,11,Nov,5,217868.0,253253.0,86.0
+5,ADL-MEL,Adelaide – Melbourne,2025,12,Dec,6,215285.0,253603.0,84.9
+5,ADL-MEL,Adelaide – Melbourne,2026,1,Jan,7,191251.0,231895.0,82.5
+5,ADL-MEL,Adelaide – Melbourne,2026,2,Feb,8,183057.0,223284.0,82.0
+5,ADL-MEL,Adelaide – Melbourne,2026,3,Mar,9,214860.0,252881.0,85.0
+5,ADL-MEL,Adelaide – Melbourne,2026,4,Apr,10,211478.0,255130.0,82.9
+5,ADL-MEL,Adelaide – Melbourne,2026,5,May,11,191008.0,226070.0,84.5
+5,ADL-MEL,Adelaide – Melbourne,2026,6,Jun,12,182050.0,213829.0,85.1
+6,MEL-OOL,Melbourne – Gold Coast,2025,7,Jul,1,193006.0,213992.0,90.2
+6,MEL-OOL,Melbourne – Gold Coast,2025,8,Aug,2,157689.0,169516.0,93.0
+6,MEL-OOL,Melbourne – Gold Coast,2025,9,Sep,3,187011.0,205731.0,90.9
+6,MEL-OOL,Melbourne – Gold Coast,2025,10,Oct,4,199638.0,216322.0,92.3
+6,MEL-OOL,Melbourne – Gold Coast,2025,11,Nov,5,191507.0,208524.0,91.8
+6,MEL-OOL,Melbourne – Gold Coast,2025,12,Dec,6,219171.0,252829.0,86.7
+6,MEL-OOL,Melbourne – Gold Coast,2026,1,Jan,7,230301.0,252795.0,91.1
+6,MEL-OOL,Melbourne – Gold Coast,2026,2,Feb,8,162034.0,182873.0,88.6
+6,MEL-OOL,Melbourne – Gold Coast,2026,3,Mar,9,185747.0,208152.0,89.2
+6,MEL-OOL,Melbourne – Gold Coast,2026,4,Apr,10,194951.0,218447.0,89.3
+6,MEL-OOL,Melbourne – Gold Coast,2026,5,May,11,145733.0,156693.0,93.0
+6,MEL-OOL,Melbourne – Gold Coast,2026,6,Jun,12,149920.0,163372.0,91.8
+7,MEL-PER,Melbourne – Perth,2025,7,Jul,1,184325.0,213553.0,86.3
+7,MEL-PER,Melbourne – Perth,2025,8,Aug,2,161852.0,194844.0,83.1
+7,MEL-PER,Melbourne – Perth,2025,9,Sep,3,170210.0,207991.0,81.8
+7,MEL-PER,Melbourne – Perth,2025,10,Oct,4,194680.0,213180.0,91.3
+7,MEL-PER,Melbourne – Perth,2025,11,Nov,5,187571.0,209919.0,89.4
+7,MEL-PER,Melbourne – Perth,2025,12,Dec,6,197634.0,224481.0,88.0
+7,MEL-PER,Melbourne – Perth,2026,1,Jan,7,186757.0,216753.0,86.2
+7,MEL-PER,Melbourne – Perth,2026,2,Feb,8,147243.0,182407.0,80.7
+7,MEL-PER,Melbourne – Perth,2026,3,Mar,9,183518.0,213354.0,86.0
+7,MEL-PER,Melbourne – Perth,2026,4,Apr,10,179822.0,205181.0,87.6
+7,MEL-PER,Melbourne – Perth,2026,5,May,11,160124.0,187576.0,85.4
+7,MEL-PER,Melbourne – Perth,2026,6,Jun,12,148647.0,178781.0,83.1
+8,ADL-SYD,Adelaide – Sydney,2025,7,Jul,1,159221.0,203580.0,78.2
+8,ADL-SYD,Adelaide – Sydney,2025,8,Aug,2,145720.0,191663.0,76.0
+8,ADL-SYD,Adelaide – Sydney,2025,9,Sep,3,152506.0,196336.0,77.7
+8,ADL-SYD,Adelaide – Sydney,2025,10,Oct,4,178703.0,206667.0,86.5
+8,ADL-SYD,Adelaide – Sydney,2025,11,Nov,5,171128.0,197920.0,86.5
+8,ADL-SYD,Adelaide – Sydney,2025,12,Dec,6,175970.0,213078.0,82.6
+8,ADL-SYD,Adelaide – Sydney,2026,1,Jan,7,157838.0,199832.0,79.0
+8,ADL-SYD,Adelaide – Sydney,2026,2,Feb,8,137951.0,172623.0,79.9
+8,ADL-SYD,Adelaide – Sydney,2026,3,Mar,9,166475.0,196233.0,84.8
+8,ADL-SYD,Adelaide – Sydney,2026,4,Apr,10,169859.0,212600.0,79.9
+8,ADL-SYD,Adelaide – Sydney,2026,5,May,11,150089.0,184680.0,81.3
+8,ADL-SYD,Adelaide – Sydney,2026,6,Jun,12,137720.0,176563.0,78.0
+9,PER-SYD,Perth – Sydney,2025,7,Jul,1,143567.0,176088.0,81.5
+9,PER-SYD,Perth – Sydney,2025,8,Aug,2,133425.0,169109.0,78.9
+9,PER-SYD,Perth – Sydney,2025,9,Sep,3,144464.0,176080.0,82.0
+9,PER-SYD,Perth – Sydney,2025,10,Oct,4,162539.0,178603.0,91.0
+9,PER-SYD,Perth – Sydney,2025,11,Nov,5,153079.0,174341.0,87.8
+9,PER-SYD,Perth – Sydney,2025,12,Dec,6,159485.0,185609.0,85.9
+9,PER-SYD,Perth – Sydney,2026,1,Jan,7,154885.0,187298.0,82.7
+9,PER-SYD,Perth – Sydney,2026,2,Feb,8,124064.0,155141.0,80.0
+9,PER-SYD,Perth – Sydney,2026,3,Mar,9,151904.0,173130.0,87.7
+9,PER-SYD,Perth – Sydney,2026,4,Apr,10,147418.0,175064.0,84.2
+9,PER-SYD,Perth – Sydney,2026,5,May,11,134177.0,163158.0,82.2
+9,PER-SYD,Perth – Sydney,2026,6,Jun,12,123961.0,157929.0,78.5
+10,HBA-MEL,Hobart – Melbourne,2025,7,Jul,1,117574.0,137701.0,85.4
+10,HBA-MEL,Hobart – Melbourne,2025,8,Aug,2,107155.0,121623.0,88.1
+10,HBA-MEL,Hobart – Melbourne,2025,9,Sep,3,111670.0,134421.0,83.1
+10,HBA-MEL,Hobart – Melbourne,2025,10,Oct,4,121198.0,138421.0,87.6
+10,HBA-MEL,Hobart – Melbourne,2025,11,Nov,5,123243.0,143652.0,85.8
+10,HBA-MEL,Hobart – Melbourne,2025,12,Dec,6,140616.0,170678.0,82.4
+10,HBA-MEL,Hobart – Melbourne,2026,1,Jan,7,146052.0,177385.0,82.3
+10,HBA-MEL,Hobart – Melbourne,2026,2,Feb,8,119452.0,137000.0,87.2
+10,HBA-MEL,Hobart – Melbourne,2026,3,Mar,9,132785.0,156225.0,85.0
+10,HBA-MEL,Hobart – Melbourne,2026,4,Apr,10,119983.0,141474.0,84.8
+10,HBA-MEL,Hobart – Melbourne,2026,5,May,11,106188.0,129158.0,82.2
+10,HBA-MEL,Hobart – Melbourne,2026,6,Jun,12,111578.0,134366.0,83.0
+11,BNE-CNS,Brisbane – Cairns,2025,7,Jul,1,124090.0,137590.0,90.2
+11,BNE-CNS,Brisbane – Cairns,2025,8,Aug,2,118561.0,133192.0,89.0
+11,BNE-CNS,Brisbane – Cairns,2025,9,Sep,3,116705.0,134877.0,86.5
+11,BNE-CNS,Brisbane – Cairns,2025,10,Oct,4,119721.0,133268.0,89.8
+11,BNE-CNS,Brisbane – Cairns,2025,11,Nov,5,106422.0,117159.0,90.8
+11,BNE-CNS,Brisbane – Cairns,2025,12,Dec,6,109919.0,123172.0,89.2
+11,BNE-CNS,Brisbane – Cairns,2026,1,Jan,7,95029.0,117862.0,80.6
+11,BNE-CNS,Brisbane – Cairns,2026,2,Feb,8,89316.0,104342.0,85.6
+11,BNE-CNS,Brisbane – Cairns,2026,3,Mar,9,97214.0,118498.0,82.0
+11,BNE-CNS,Brisbane – Cairns,2026,4,Apr,10,103015.0,120838.0,85.3
+11,BNE-CNS,Brisbane – Cairns,2026,5,May,11,107518.0,122233.0,88.0
+11,BNE-CNS,Brisbane – Cairns,2026,6,Jun,12,116746.0,125567.0,93.0
+12,BNE-PER,Brisbane – Perth,2025,7,Jul,1,97741.0,116465.0,83.9
+12,BNE-PER,Brisbane – Perth,2025,8,Aug,2,89146.0,109442.0,81.5
+12,BNE-PER,Brisbane – Perth,2025,9,Sep,3,95570.0,114386.0,83.6
+12,BNE-PER,Brisbane – Perth,2025,10,Oct,4,106407.0,117436.0,90.6
+12,BNE-PER,Brisbane – Perth,2025,11,Nov,5,96590.0,111756.0,86.4
+12,BNE-PER,Brisbane – Perth,2025,12,Dec,6,104073.0,123492.0,84.3
+12,BNE-PER,Brisbane – Perth,2026,1,Jan,7,100964.0,123998.0,81.4
+12,BNE-PER,Brisbane – Perth,2026,2,Feb,8,81360.0,104286.0,78.0
+12,BNE-PER,Brisbane – Perth,2026,3,Mar,9,97361.0,114272.0,85.2
+12,BNE-PER,Brisbane – Perth,2026,4,Apr,10,95587.0,116188.0,82.3
+12,BNE-PER,Brisbane – Perth,2026,5,May,11,88501.0,110285.0,80.2
+12,BNE-PER,Brisbane – Perth,2026,6,Jun,12,84246.0,107518.0,78.4
+13,BNE-TSV,Brisbane – Townsville,2025,7,Jul,1,92658.0,104623.0,88.6
+13,BNE-TSV,Brisbane – Townsville,2025,8,Aug,2,87382.0,102473.0,85.3
+13,BNE-TSV,Brisbane – Townsville,2025,9,Sep,3,87426.0,102474.0,85.3
+13,BNE-TSV,Brisbane – Townsville,2025,10,Oct,4,95580.0,114710.0,83.3
+13,BNE-TSV,Brisbane – Townsville,2025,11,Nov,5,83579.0,104400.0,80.1
+13,BNE-TSV,Brisbane – Townsville,2025,12,Dec,6,86398.0,104074.0,83.0
+13,BNE-TSV,Brisbane – Townsville,2026,1,Jan,7,73895.0,97217.0,76.0
+13,BNE-TSV,Brisbane – Townsville,2026,2,Feb,8,70373.0,100711.0,69.9
+13,BNE-TSV,Brisbane – Townsville,2026,3,Mar,9,80992.0,110706.0,73.2
+13,BNE-TSV,Brisbane – Townsville,2026,4,Apr,10,86405.0,110274.0,78.4
+13,BNE-TSV,Brisbane – Townsville,2026,5,May,11,87441.0,110760.0,78.9
+13,BNE-TSV,Brisbane – Townsville,2026,6,Jun,12,87801.0,106482.0,82.5
+14,CBR-MEL,Canberra – Melbourne,2025,7,Jul,1,79843.0,106294.0,75.1
+14,CBR-MEL,Canberra – Melbourne,2025,8,Aug,2,84708.0,116414.0,72.8
+14,CBR-MEL,Canberra – Melbourne,2025,9,Sep,3,85823.0,113982.0,75.3
+14,CBR-MEL,Canberra – Melbourne,2025,10,Oct,4,91154.0,113891.0,80.0
+14,CBR-MEL,Canberra – Melbourne,2025,11,Nov,5,87396.0,105460.0,82.9
+14,CBR-MEL,Canberra – Melbourne,2025,12,Dec,6,74595.0,95406.0,78.2
+14,CBR-MEL,Canberra – Melbourne,2026,1,Jan,7,65827.0,86068.0,76.5
+14,CBR-MEL,Canberra – Melbourne,2026,2,Feb,8,72708.0,101503.0,71.6
+14,CBR-MEL,Canberra – Melbourne,2026,3,Mar,9,86633.0,113751.0,76.2
+14,CBR-MEL,Canberra – Melbourne,2026,4,Apr,10,77738.0,103262.0,75.3
+14,CBR-MEL,Canberra – Melbourne,2026,5,May,11,75174.0,105232.0,71.4
+14,CBR-MEL,Canberra – Melbourne,2026,6,Jun,12,71267.0,98236.0,72.5
+15,ADL-BNE,Adelaide – Brisbane,2025,7,Jul,1,75909.0,87343.0,86.9
+15,ADL-BNE,Adelaide – Brisbane,2025,8,Aug,2,72147.0,84658.0,85.2
+15,ADL-BNE,Adelaide – Brisbane,2025,9,Sep,3,71379.0,84561.0,84.4
+15,ADL-BNE,Adelaide – Brisbane,2025,10,Oct,4,81885.0,92139.0,88.9
+15,ADL-BNE,Adelaide – Brisbane,2025,11,Nov,5,79705.0,91465.0,87.1
+15,ADL-BNE,Adelaide – Brisbane,2025,12,Dec,6,81790.0,97874.0,83.6
+15,ADL-BNE,Adelaide – Brisbane,2026,1,Jan,7,74754.0,98224.0,76.1
+15,ADL-BNE,Adelaide – Brisbane,2026,2,Feb,8,66166.0,80860.0,81.8
+15,ADL-BNE,Adelaide – Brisbane,2026,3,Mar,9,79998.0,99384.0,80.5
+15,ADL-BNE,Adelaide – Brisbane,2026,4,Apr,10,81932.0,103075.0,79.5
+15,ADL-BNE,Adelaide – Brisbane,2026,5,May,11,73541.0,90527.0,81.2
+15,ADL-BNE,Adelaide – Brisbane,2026,6,Jun,12,68426.0,83031.0,82.4

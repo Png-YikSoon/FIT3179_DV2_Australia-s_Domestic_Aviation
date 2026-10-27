@@ -1,0 +1,239 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Domestic trips by reason: % change in each quarter compared with the June quarter 2025 (0 = no change).",
+  "width": "container",
+  "height": 360,
+  "data": {
+    "url": "data/09_purpose_by_quarter.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "quarter_order": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.trip_type == 'All trips'"
+    },
+    {
+      "calculate": "datum.index_vs_jun_q_2025 - 100",
+      "as": "pct"
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "y": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#4a4945",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -25,
+              15
+            ]
+          }
+        }
+      }
+    },
+    {
+      "encoding": {
+        "x": {
+          "field": "quarter_order",
+          "type": "quantitative",
+          "title": "Quarter",
+          "scale": {
+            "domain": [
+              0.8,
+              6.9
+            ],
+            "nice": false
+          },
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "grid": false,
+            "labelExpr": "[['Jun Q','2025'],['Sep Q','2025'],['Dec Q','2025'],['Mar Q','2026'],['Jun Q','2026']][datum.value-1]",
+            "labelPadding": 6,
+            "domain": false
+          }
+        },
+        "y": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -25,
+              15
+            ]
+          },
+          "title": "Change in trips since June quarter 2025 (%)",
+          "axis": {
+            "values": [
+              -20,
+              -10,
+              0,
+              10
+            ],
+            "labelExpr": "(datum.value > 0 ? '+' : '') + datum.value + '%'"
+          }
+        },
+        "color": {
+          "field": "purpose",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Holiday",
+              "Visiting friends & relatives",
+              "Business",
+              "Other"
+            ],
+            "range": [
+              "#eb6834",
+              "#c2337a",
+              "#2a78d6",
+              "#b4b8bf"
+            ]
+          },
+          "title": "Main reason for trip",
+          "legend": {
+            "orient": "top"
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "strokeWidth": 2.5
+          }
+        },
+        {
+          "mark": {
+            "type": "circle",
+            "size": 70,
+            "stroke": "#ffffff",
+            "strokeWidth": 1.5,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "purpose",
+                "title": "Reason"
+              },
+              {
+                "field": "quarter",
+                "title": "Quarter"
+              },
+              {
+                "field": "trips_000",
+                "type": "quantitative",
+                "format": ",.0f",
+                "title": "Trips ('000)"
+              },
+              {
+                "field": "pct",
+                "type": "quantitative",
+                "title": "Change since June Q 2025 (%)",
+                "format": "+.1f"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.quarter_order == 5"
+            },
+            {
+              "calculate": "datum.purpose == 'Visiting friends & relatives' ? ['Visiting friends &', 'relatives +' + format(datum.pct, '.0f') + '%'] : datum.purpose + ' ' + (datum.pct >= 0 ? '+' : '−') + format(abs(datum.pct), '.0f') + '%'",
+              "as": "lab"
+            },
+            {
+              "calculate": "0",
+              "as": "nudge"
+            },
+            {
+              "calculate": "{'Holiday': 9.6, 'Visiting friends & relatives': 5.4, 'Other': 1.9}[datum.purpose] || datum.pct",
+              "as": "ly"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 10,
+            "fontSize": 12,
+            "baseline": "middle",
+            "lineHeight": 15
+          },
+          "encoding": {
+            "text": {
+              "field": "lab"
+            },
+            "color": {
+              "value": "#0b0b0b"
+            },
+            "y": {
+              "field": "ly",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "quarter": "Sep Q 2025",
+                "quarter_order": 2,
+                "y": -20.5,
+                "t": [
+                  "Business trips fell",
+                  "in every quarter"
+                ]
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "fontStyle": "italic",
+            "fontSize": 11.5,
+            "color": "#1f63b8",
+            "lineHeight": 15
+          },
+          "encoding": {
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            },
+            "color": {
+              "value": "#1f63b8"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

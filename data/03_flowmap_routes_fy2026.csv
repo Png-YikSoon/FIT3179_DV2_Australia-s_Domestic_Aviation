@@ -1,0 +1,63 @@
+rank,route_code,route,origin_code,origin_city,origin_lat,origin_lon,dest_code,dest_city,dest_lat,dest_lon,distance_km,passengers_fy2026
+1,MEL-SYD,Melbourne – Sydney,MEL,Melbourne,-37.6707,144.8379,SYD,Sydney,-33.9461,151.177,706,8080486.0
+2,BNE-SYD,Brisbane – Sydney,BNE,Brisbane,-27.3842,153.117,SYD,Sydney,-33.9461,151.177,753,4429241.0
+3,BNE-MEL,Brisbane – Melbourne,BNE,Brisbane,-27.3842,153.117,MEL,Melbourne,-37.6707,144.8379,1381,3696255.0
+4,OOL-SYD,Gold Coast – Sydney,OOL,Gold Coast,-28.166,153.5066,SYD,Sydney,-33.9461,151.177,680,2610133.0
+5,ADL-MEL,Adelaide – Melbourne,ADL,Adelaide,-34.9475,138.5334,MEL,Melbourne,-37.6707,144.8379,643,2414465.0
+6,MEL-OOL,Melbourne – Gold Coast,MEL,Melbourne,-37.6707,144.8379,OOL,Gold Coast,-28.166,153.5066,1330,2216708.0
+7,MEL-PER,Melbourne – Perth,MEL,Melbourne,-37.6707,144.8379,PER,Perth,-31.9403,115.967,2706,2102383.0
+8,ADL-SYD,Adelaide – Sydney,ADL,Adelaide,-34.9475,138.5334,SYD,Sydney,-33.9461,151.177,1167,1903180.0
+9,PER-SYD,Perth – Sydney,PER,Perth,-31.9403,115.967,SYD,Sydney,-33.9461,151.177,3284,1732968.0
+10,HBA-MEL,Hobart – Melbourne,HBA,Hobart,-42.837,147.513,MEL,Melbourne,-37.6707,144.8379,618,1457494.0
+11,BNE-CNS,Brisbane – Cairns,BNE,Brisbane,-27.3842,153.117,CNS,Cairns,-16.8789,145.7495,1391,1304256.0
+12,BNE-PER,Brisbane – Perth,BNE,Brisbane,-27.3842,153.117,PER,Perth,-31.9403,115.967,3615,1137546.0
+13,BNE-TSV,Brisbane – Townsville,BNE,Brisbane,-27.3842,153.117,TSV,Townsville,-19.2529,146.7665,1112,1019930.0
+14,CBR-MEL,Canberra – Melbourne,CBR,Canberra,-35.3069,149.195,MEL,Melbourne,-37.6707,144.8379,470,952866.0
+15,ADL-BNE,Adelaide – Brisbane,ADL,Adelaide,-34.9475,138.5334,BNE,Brisbane,-27.3842,153.117,1622,907632.0
+16,CNS-SYD,Cairns – Sydney,CNS,Cairns,-16.8789,145.7495,SYD,Sydney,-33.9461,151.177,1971,907518.0
+17,LST-MEL,Launceston – Melbourne,LST,Launceston,-41.5449,147.2108,MEL,Melbourne,-37.6707,144.8379,476,896085.0
+18,CNS-MEL,Cairns – Melbourne,CNS,Cairns,-16.8789,145.7495,MEL,Melbourne,-37.6707,144.8379,2311,853701.0
+19,HBA-SYD,Hobart – Sydney,HBA,Hobart,-42.837,147.513,SYD,Sydney,-33.9461,151.177,1039,838754.0
+20,BNE-MKY,Brisbane – Mackay,BNE,Brisbane,-27.3842,153.117,MKY,Mackay,-21.1708,149.1826,797,828221.0
+21,MCY-SYD,Sunshine Coast – Sydney,MCY,Sunshine Coast,-26.5933,153.0832,SYD,Sydney,-33.9461,151.177,837,822176.0
+22,MCY-MEL,Sunshine Coast – Melbourne,MCY,Sunshine Coast,-26.5933,153.0832,MEL,Melbourne,-37.6707,144.8379,1454,773986.0
+23,ADL-PER,Adelaide – Perth,ADL,Adelaide,-34.9475,138.5334,PER,Perth,-31.9403,115.967,2120,730412.0
+24,KTA-PER,Karratha – Perth,KTA,Karratha,-20.7122,116.773,PER,Perth,-31.9403,115.967,1250,718779.0
+25,BNE-CBR,Brisbane – Canberra,BNE,Brisbane,-27.3842,153.117,CBR,Canberra,-35.3069,149.195,956,668101.0
+26,BNE-ROK,Brisbane – Rockhampton,BNE,Brisbane,-27.3842,153.117,ROK,Rockhampton,-23.38,150.4754,518,606918.0
+27,CBR-SYD,Canberra – Sydney,CBR,Canberra,-35.3069,149.195,SYD,Sydney,-33.9461,151.177,236,585263.0
+28,BNE-NTL,Brisbane – Newcastle,BNE,Brisbane,-27.3842,153.117,NTL,Newcastle,-32.7961,151.835,614,529156.0
+29,PER-PHE,Perth – Port Hedland,PER,Perth,-31.9403,115.967,PHE,Port Hedland,-20.3828,118.6298,1312,503065.0
+30,QNA-SYD,Ballina – Sydney,QNA,Ballina,-28.8332,153.5615,SYD,Sydney,-33.9461,151.177,612,470461.0
+31,MEL-NTL,Melbourne – Newcastle,MEL,Melbourne,-37.6707,144.8379,NTL,Newcastle,-32.7961,151.835,836,466763.0
+32,PER-ZNE,Perth – Newman,PER,Perth,-31.9403,115.967,ZNE,Newman,-23.4178,119.803,1019,447432.0
+33,KGI-PER,Kalgoorlie – Perth,KGI,Kalgoorlie,-30.7915,121.4646,PER,Perth,-31.9403,115.967,538,436793.0
+34,BME-PER,Broome – Perth,BME,Broome,-17.9492,122.2283,PER,Perth,-31.9403,115.967,1677,374469.0
+35,LST-SYD,Launceston – Sydney,LST,Launceston,-41.5449,147.2108,SYD,Sydney,-33.9461,151.177,914,359795.0
+36,BNE-DRW,Brisbane – Darwin,BNE,Brisbane,-27.3842,153.117,DRW,Darwin,-12.415,130.8818,2852,350780.0
+37,BNE-HBA,Brisbane – Hobart,BNE,Brisbane,-27.3842,153.117,HBA,Hobart,-42.837,147.513,1791,328740.0
+38,DRW-MEL,Darwin – Melbourne,DRW,Darwin,-12.415,130.8818,MEL,Melbourne,-37.6707,144.8379,3131,295867.0
+39,ADL-OOL,Adelaide – Gold Coast,ADL,Adelaide,-34.9475,138.5334,OOL,Gold Coast,-28.166,153.5066,1607,294898.0
+40,BNE-PPP,Brisbane – Proserpine,BNE,Brisbane,-27.3842,153.117,PPP,Proserpine,-20.4944,148.5536,895,292587.0
+41,HTI-SYD,Hamilton Island – Sydney,HTI,Hamilton Island,-20.3581,148.952,SYD,Sydney,-33.9461,151.177,1526,231239.0
+42,BNE-GLT,Brisbane – Gladstone,BNE,Brisbane,-27.3842,153.117,GLT,Gladstone,-23.8698,151.2254,434,217350.0
+43,CFS-SYD,Coffs Harbour – Sydney,CFS,Coffs Harbour,-30.3206,153.116,SYD,Sydney,-33.9461,151.177,443,205746.0
+44,ADL-CBR,Adelaide – Canberra,ADL,Adelaide,-34.9475,138.5334,CBR,Canberra,-35.3069,149.195,972,195209.0
+45,BNE-EMD,Brisbane – Emerald,BNE,Brisbane,-27.3842,153.117,EMD,Emerald,-23.5675,148.179,653,189796.0
+46,BNE-HTI,Brisbane – Hamilton Island,BNE,Brisbane,-27.3842,153.117,HTI,Hamilton Island,-20.3581,148.952,888,187035.0
+47,DBO-SYD,Dubbo – Sydney,DBO,Dubbo,-32.2167,148.575,SYD,Sydney,-33.9461,151.177,310,182515.0
+48,DRW-PER,Darwin – Perth,DRW,Darwin,-12.415,130.8818,PER,Perth,-31.9403,115.967,2651,182425.0
+49,CBR-OOL,Canberra – Gold Coast,CBR,Canberra,-35.3069,149.195,OOL,Gold Coast,-28.166,153.5066,896,181159.0
+50,SYD-WGA,Sydney – Wagga Wagga,SYD,Sydney,-33.9461,151.177,WGA,Wagga Wagga,-35.1635,147.4683,367,172671.0
+51,PQQ-SYD,Port Macquarie – Sydney,PQQ,Port Macquarie,-31.4358,152.863,SYD,Sydney,-33.9461,151.177,321,169727.0
+52,ADL-PLO,Adelaide – Port Lincoln,ADL,Adelaide,-34.9475,138.5334,PLO,Port Lincoln,-34.6053,135.88,246,168691.0
+53,ABX-SYD,Albury – Sydney,ABX,Albury,-36.0668,146.9591,SYD,Sydney,-33.9461,151.177,452,161461.0
+54,BNE-LST,Brisbane – Launceston,BNE,Brisbane,-27.3842,153.117,LST,Launceston,-41.5449,147.2108,1664,158311.0
+55,MEL-MQL,Melbourne – Mildura,MEL,Melbourne,-37.6707,144.8379,MQL,Mildura,-34.2292,142.086,457,150820.0
+56,BNE-ISA,Brisbane – Mount Isa,BNE,Brisbane,-27.3842,153.117,ISA,Mount Isa,-20.6664,139.4885,1573,150418.0
+57,DPO-MEL,Devonport – Melbourne,DPO,Devonport,-41.1697,146.43,MEL,Melbourne,-37.6707,144.8379,412,146385.0
+58,BDB-BNE,Bundaberg – Brisbane,BDB,Bundaberg,-24.905,152.3226,BNE,Brisbane,-27.3842,153.117,287,140815.0
+59,GET-PER,Geraldton – Perth,GET,Geraldton,-28.7961,114.707,PER,Perth,-31.9403,115.967,370,122628.0
+60,AYQ-MEL,Ayers Rock – Melbourne,AYQ,Ayers Rock,-25.1859,130.977,MEL,Melbourne,-37.6707,144.8379,1910,119584.0
+61,ADL-ASP,Adelaide – Alice Springs,ADL,Adelaide,-34.9475,138.5334,ASP,Alice Springs,-23.8066,133.9034,1316,102465.0
+62,OAG-SYD,Orange – Sydney,OAG,Orange,-33.382,149.1313,SYD,Sydney,-33.9461,151.177,200,99769.0

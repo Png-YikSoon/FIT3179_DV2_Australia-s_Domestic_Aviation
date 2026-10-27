@@ -1,0 +1,97 @@
+route_type,route_code,route,month_num,month,avg_passengers,index_vs_route_avg
+Business corridor,BNE-SYD,Brisbane – Sydney,1,Jan,319414.0,88.5
+Business corridor,BNE-SYD,Brisbane – Sydney,2,Feb,326411.0,90.4
+Business corridor,BNE-SYD,Brisbane – Sydney,3,Mar,352645.0,97.7
+Business corridor,BNE-SYD,Brisbane – Sydney,4,Apr,348596.0,96.6
+Business corridor,BNE-SYD,Brisbane – Sydney,5,May,357591.0,99.1
+Business corridor,BNE-SYD,Brisbane – Sydney,6,Jun,348718.0,96.6
+Business corridor,BNE-SYD,Brisbane – Sydney,7,Jul,382091.0,105.9
+Business corridor,BNE-SYD,Brisbane – Sydney,8,Aug,369502.0,102.4
+Business corridor,BNE-SYD,Brisbane – Sydney,9,Sep,368994.0,102.2
+Business corridor,BNE-SYD,Brisbane – Sydney,10,Oct,400092.0,110.9
+Business corridor,BNE-SYD,Brisbane – Sydney,11,Nov,384834.0,106.6
+Business corridor,BNE-SYD,Brisbane – Sydney,12,Dec,371753.0,103.0
+Business corridor,CBR-SYD,Canberra – Sydney,1,Jan,34717.0,67.5
+Business corridor,CBR-SYD,Canberra – Sydney,2,Feb,48925.0,95.1
+Business corridor,CBR-SYD,Canberra – Sydney,3,Mar,56262.0,109.3
+Business corridor,CBR-SYD,Canberra – Sydney,4,Apr,46058.0,89.5
+Business corridor,CBR-SYD,Canberra – Sydney,5,May,54644.0,106.2
+Business corridor,CBR-SYD,Canberra – Sydney,6,Jun,51712.0,100.5
+Business corridor,CBR-SYD,Canberra – Sydney,7,Jul,52684.0,102.4
+Business corridor,CBR-SYD,Canberra – Sydney,8,Aug,54544.0,106.0
+Business corridor,CBR-SYD,Canberra – Sydney,9,Sep,53874.0,104.7
+Business corridor,CBR-SYD,Canberra – Sydney,10,Oct,56159.0,109.1
+Business corridor,CBR-SYD,Canberra – Sydney,11,Nov,60644.0,117.8
+Business corridor,CBR-SYD,Canberra – Sydney,12,Dec,47373.0,92.0
+Leisure,CNS-SYD,Cairns – Sydney,1,Jan,78564.0,103.8
+Leisure,CNS-SYD,Cairns – Sydney,2,Feb,53801.0,71.1
+Leisure,CNS-SYD,Cairns – Sydney,3,Mar,66089.0,87.3
+Leisure,CNS-SYD,Cairns – Sydney,4,Apr,76609.0,101.2
+Leisure,CNS-SYD,Cairns – Sydney,5,May,66258.0,87.5
+Leisure,CNS-SYD,Cairns – Sydney,6,Jun,72707.0,96.0
+Leisure,CNS-SYD,Cairns – Sydney,7,Jul,93498.0,123.5
+Leisure,CNS-SYD,Cairns – Sydney,8,Aug,85805.0,113.3
+Leisure,CNS-SYD,Cairns – Sydney,9,Sep,81747.0,108.0
+Leisure,CNS-SYD,Cairns – Sydney,10,Oct,87152.0,115.1
+Leisure,CNS-SYD,Cairns – Sydney,11,Nov,71203.0,94.0
+Leisure,CNS-SYD,Cairns – Sydney,12,Dec,75196.0,99.3
+Leisure,HBA-MEL,Hobart – Melbourne,1,Jan,136561.0,119.1
+Leisure,HBA-MEL,Hobart – Melbourne,2,Feb,113584.0,99.0
+Leisure,HBA-MEL,Hobart – Melbourne,3,Mar,121933.0,106.3
+Leisure,HBA-MEL,Hobart – Melbourne,4,Apr,114889.0,100.2
+Leisure,HBA-MEL,Hobart – Melbourne,5,May,104796.0,91.4
+Leisure,HBA-MEL,Hobart – Melbourne,6,Jun,99699.0,86.9
+Leisure,HBA-MEL,Hobart – Melbourne,7,Jul,109531.0,95.5
+Leisure,HBA-MEL,Hobart – Melbourne,8,Aug,102504.0,89.4
+Leisure,HBA-MEL,Hobart – Melbourne,9,Sep,104241.0,90.9
+Leisure,HBA-MEL,Hobart – Melbourne,10,Oct,114979.0,100.3
+Leisure,HBA-MEL,Hobart – Melbourne,11,Nov,118551.0,103.4
+Leisure,HBA-MEL,Hobart – Melbourne,12,Dec,134860.0,117.6
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,1,Jan,25806.0,82.7
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,2,Feb,27539.0,88.3
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,3,Mar,30970.0,99.3
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,4,Apr,29319.0,94.0
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,5,May,32728.0,104.9
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,6,Jun,30151.0,96.7
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,7,Jul,31483.0,100.9
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,8,Aug,35120.0,112.6
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,9,Sep,32598.0,104.5
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,10,Oct,36052.0,115.6
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,11,Nov,33327.0,106.8
+Mining (FIFO),KGI-PER,Kalgoorlie – Perth,12,Dec,29202.0,93.6
+Leisure,MEL-OOL,Melbourne – Gold Coast,1,Jan,223968.0,123.0
+Leisure,MEL-OOL,Melbourne – Gold Coast,2,Feb,158048.0,86.8
+Leisure,MEL-OOL,Melbourne – Gold Coast,3,Mar,164793.0,90.5
+Leisure,MEL-OOL,Melbourne – Gold Coast,4,Apr,185787.0,102.0
+Leisure,MEL-OOL,Melbourne – Gold Coast,5,May,155752.0,85.5
+Leisure,MEL-OOL,Melbourne – Gold Coast,6,Jun,159215.0,87.4
+Leisure,MEL-OOL,Melbourne – Gold Coast,7,Jul,192973.0,106.0
+Leisure,MEL-OOL,Melbourne – Gold Coast,8,Aug,167470.0,92.0
+Leisure,MEL-OOL,Melbourne – Gold Coast,9,Sep,186609.0,102.5
+Leisure,MEL-OOL,Melbourne – Gold Coast,10,Oct,196064.0,107.7
+Leisure,MEL-OOL,Melbourne – Gold Coast,11,Nov,183164.0,100.6
+Leisure,MEL-OOL,Melbourne – Gold Coast,12,Dec,210979.0,115.9
+Business corridor,MEL-SYD,Melbourne – Sydney,1,Jan,631464.0,95.6
+Business corridor,MEL-SYD,Melbourne – Sydney,2,Feb,627617.0,95.0
+Business corridor,MEL-SYD,Melbourne – Sydney,3,Mar,707456.0,107.1
+Business corridor,MEL-SYD,Melbourne – Sydney,4,Apr,642164.0,97.2
+Business corridor,MEL-SYD,Melbourne – Sydney,5,May,650909.0,98.5
+Business corridor,MEL-SYD,Melbourne – Sydney,6,Jun,610583.0,92.4
+Business corridor,MEL-SYD,Melbourne – Sydney,7,Jul,656200.0,99.3
+Business corridor,MEL-SYD,Melbourne – Sydney,8,Aug,660680.0,100.0
+Business corridor,MEL-SYD,Melbourne – Sydney,9,Sep,654303.0,99.0
+Business corridor,MEL-SYD,Melbourne – Sydney,10,Oct,720128.0,109.0
+Business corridor,MEL-SYD,Melbourne – Sydney,11,Nov,701738.0,106.2
+Business corridor,MEL-SYD,Melbourne – Sydney,12,Dec,665115.0,100.7
+Mining (FIFO),PER-PHE,Perth – Port Hedland,1,Jan,37079.0,92.6
+Mining (FIFO),PER-PHE,Perth – Port Hedland,2,Feb,35259.0,88.0
+Mining (FIFO),PER-PHE,Perth – Port Hedland,3,Mar,39656.0,99.0
+Mining (FIFO),PER-PHE,Perth – Port Hedland,4,Apr,38841.0,97.0
+Mining (FIFO),PER-PHE,Perth – Port Hedland,5,May,42521.0,106.2
+Mining (FIFO),PER-PHE,Perth – Port Hedland,6,Jun,38907.0,97.1
+Mining (FIFO),PER-PHE,Perth – Port Hedland,7,Jul,43702.0,109.1
+Mining (FIFO),PER-PHE,Perth – Port Hedland,8,Aug,42175.0,105.3
+Mining (FIFO),PER-PHE,Perth – Port Hedland,9,Sep,40367.0,100.8
+Mining (FIFO),PER-PHE,Perth – Port Hedland,10,Oct,43961.0,109.8
+Mining (FIFO),PER-PHE,Perth – Port Hedland,11,Nov,41708.0,104.1
+Mining (FIFO),PER-PHE,Perth – Port Hedland,12,Dec,36445.0,91.0

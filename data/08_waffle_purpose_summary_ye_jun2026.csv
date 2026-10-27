@@ -1,0 +1,9 @@
+key,trip_type,purpose,trips_000,share_pct,squares
+All trips (day + overnight)|Holiday,All trips (day + overnight),Holiday,200816.3,49.8,50
+All trips (day + overnight)|Visiting friends & relatives,All trips (day + overnight),Visiting friends & relatives,131415.9,32.6,33
+All trips (day + overnight)|Business,All trips (day + overnight),Business,29574.5,7.3,7
+All trips (day + overnight)|Other,All trips (day + overnight),Other,41059.2,10.2,10
+Overnight trips|Holiday,Overnight trips,Holiday,52881.9,46.2,46
+Overnight trips|Visiting friends & relatives,Overnight trips,Visiting friends & relatives,43359.4,37.9,38
+Overnight trips|Business,Overnight trips,Business,9047.2,7.9,8
+Overnight trips|Other,Overnight trips,Other,9138.1,8.0,8

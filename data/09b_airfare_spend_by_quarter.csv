@@ -1,0 +1,16 @@
+trip_type,quarter,quarter_order,airfare_spend_m
+Overnight trips,Jun Q 2025,1,3865.3
+Overnight trips,Sep Q 2025,2,4157.0
+Overnight trips,Dec Q 2025,3,4219.6
+Overnight trips,Mar Q 2026,4,4068.2
+Overnight trips,Jun Q 2026,5,3846.0
+Day trips,Jun Q 2025,1,315.3
+Day trips,Sep Q 2025,2,447.9
+Day trips,Dec Q 2025,3,524.5
+Day trips,Mar Q 2026,4,598.9
+Day trips,Jun Q 2026,5,695.1
+All trips,Jun Q 2025,1,4180.6
+All trips,Sep Q 2025,2,4604.9
+All trips,Dec Q 2025,3,4744.2
+All trips,Mar Q 2026,4,4667.1
+All trips,Jun Q 2026,5,4541.0

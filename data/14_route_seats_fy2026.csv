@@ -1,0 +1,12 @@
+order,route_code,route,seats,passengers
+1,MEL-SYD,Melbourne – Sydney,9459747.0,8080486.0
+2,BNE-SYD,Brisbane – Sydney,5136803.0,4429241.0
+3,BNE-MEL,Brisbane – Melbourne,4366000.0,3696255.0
+4,OOL-SYD,Gold Coast – Sydney,2933319.0,2610133.0
+5,ADL-MEL,Adelaide – Melbourne,2883748.0,2414465.0
+6,MEL-OOL,Melbourne – Gold Coast,2449246.0,2216708.0
+7,MEL-PER,Melbourne – Perth,2448020.0,2102383.0
+8,ADL-SYD,Adelaide – Sydney,2351775.0,1903180.0
+9,PER-SYD,Perth – Sydney,2071550.0,1732968.0
+10,HBA-MEL,Hobart – Melbourne,1722104.0,1457494.0
+11,OTHER,Other 52 routes,29740812.0,23339169.0

@@ -1,0 +1,41 @@
+trip_type,purpose,quarter,quarter_order,trips_000,index_vs_jun_q_2025
+All trips,Holiday,Jun Q 2025,1,46813.0,100.0
+All trips,Holiday,Sep Q 2025,2,48862.3,104.4
+All trips,Holiday,Dec Q 2025,3,50298.7,107.4
+All trips,Holiday,Mar Q 2026,4,50843.3,108.6
+All trips,Holiday,Jun Q 2026,5,50812.0,108.5
+All trips,Visiting friends & relatives,Jun Q 2025,1,31454.2,100.0
+All trips,Visiting friends & relatives,Sep Q 2025,2,32428.2,103.1
+All trips,Visiting friends & relatives,Dec Q 2025,3,33068.8,105.1
+All trips,Visiting friends & relatives,Mar Q 2026,4,32715.7,104.0
+All trips,Visiting friends & relatives,Jun Q 2026,5,33203.2,105.6
+All trips,Business,Jun Q 2025,1,8661.4,100.0
+All trips,Business,Sep Q 2025,2,7966.0,92.0
+All trips,Business,Dec Q 2025,3,7329.8,84.6
+All trips,Business,Mar Q 2026,4,7194.3,83.1
+All trips,Business,Jun Q 2026,5,7084.4,81.8
+All trips,Other,Jun Q 2025,1,10058.6,100.0
+All trips,Other,Sep Q 2025,2,10447.8,103.9
+All trips,Other,Dec Q 2025,3,10118.0,100.6
+All trips,Other,Mar Q 2026,4,9851.3,97.9
+All trips,Other,Jun Q 2026,5,10642.2,105.8
+Overnight trips,Holiday,Jun Q 2025,1,12105.4,100.0
+Overnight trips,Holiday,Sep Q 2025,2,12147.5,100.3
+Overnight trips,Holiday,Dec Q 2025,3,13734.0,113.5
+Overnight trips,Holiday,Mar Q 2026,4,14048.2,116.0
+Overnight trips,Holiday,Jun Q 2026,5,12952.2,107.0
+Overnight trips,Visiting friends & relatives,Jun Q 2025,1,10572.9,100.0
+Overnight trips,Visiting friends & relatives,Sep Q 2025,2,10444.2,98.8
+Overnight trips,Visiting friends & relatives,Dec Q 2025,3,11540.6,109.2
+Overnight trips,Visiting friends & relatives,Mar Q 2026,4,10966.8,103.7
+Overnight trips,Visiting friends & relatives,Jun Q 2026,5,10407.7,98.4
+Overnight trips,Business,Jun Q 2025,1,3251.2,100.0
+Overnight trips,Business,Sep Q 2025,2,2614.7,80.4
+Overnight trips,Business,Dec Q 2025,3,2314.4,71.2
+Overnight trips,Business,Mar Q 2026,4,2093.9,64.4
+Overnight trips,Business,Jun Q 2026,5,2024.3,62.3
+Overnight trips,Other,Jun Q 2025,1,2042.4,100.0
+Overnight trips,Other,Sep Q 2025,2,2236.4,109.5
+Overnight trips,Other,Dec Q 2025,3,2484.1,121.6
+Overnight trips,Other,Mar Q 2026,4,2301.1,112.7
+Overnight trips,Other,Jun Q 2026,5,2116.5,103.6
